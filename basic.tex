@@ -1,0 +1,107 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{indentfirst}
+\usepackage{amsmath}
+\title{\textbf{Basic Maths}}
+\author{Steven Shen}
+\begin{document}
+\maketitle
+
+\section{Topological Space}
+The most fundamental property of topological space is the concept of continuity. \\
+First we have a set $X$. We define \textbf{topological space} to be a structure on $X$ that has the property of \textbf{connectivity} between elements of $X$. Any space that has the same connectivity is topological invariant. We can define connectivity by \textbf{Euler Number}: $v - e + f$.(But I can only imagine Euler number within a continuous space)\\
+\indent The point is to clarify what is the most basic property, i.e. invariant of equivalent topological spaces.
+
+\subsection{Formation 1: Starting from Neighborhood}
+\textbf{Particular Example: }\\
+In a $E^m$ space, define the neighborhood $N_p \subseteq E^m$ of any $p \in E^m$: \\
+$\exists r \in R$, $r>0$, a $m$-dimensional ball $B(p, r)$ centering at $p$ with radius $r$, s.t. $B(r, p) \subseteq N_p$.\\
+This is an example in a Euclidean Space where distance is well defined. But actually given a set, we can define it in whatever way we want it.\\
+\\
+\indent \textbf{The General Definition of Neighborhood: }\\
+Given a set $X$, for all $x \in X$, we assign a family $F_x$ of subsets of $X$. Every element in $F_x$ is defined as the neighborhood of $x$, if $F_x$ satisfies:
+\begin{enumerate}
+	\item $x \in N_x$, for all $N_x \in F_x$
+	\item $\forall N_x1, N_x2 \in F_x$, $N_x1 \bigcap N_x2 \in F_x$
+	\item if $N_x \subseteq U \&\& U \subseteq X$, $U \in F_x$
+	\item $\forall N_x \in F_x$, define $\tilde{N_x} = \{z \in N_x \&\& N_x \in F_z \}$, then $\tilde{N_x} \in F_x$
+\end{enumerate}
+
+\newpage
+
+\indent Given set $X$, if we find a $F_x$ for all $x \in X$, we then call the $(X, F)$ a topological space.($T-space$ below for simplicity)\\
+\indent Given two $T-space$ $X,Y$ and a mapping $f: X \mapsto Y$, we then can define f to be a \textbf{continuous mapping}, if:\\
+$\forall x_0 \in X$, we have $y_0 = f(x_0)$. For all $N_{y_0} \in F_{y_0}$, $f^{-1}(N_{y_0}) \in F_{x_0}$.\\
+\indent Further we define \textbf{homomorphism} between $T-space$ $X,Y$:
+if $\exists h: X \mapsto Y$, s.t. $h$ is one-to-one and continuous mapping, $h(X)=Y$, $\exists$ continuous $h^{-1}: Y \mapsto X$.\\
+\indent We can see homomorphism between two $T-space$ is equivalent to having a bijective continuous mapping. 
+\subsubsection{Open sets on top of Neighborhood}
+After we have a topology on $X$, it is easy to define \textbf{Open sets}:
+In a $T-space (X, F)$, a subset of $X$ $O$ is called an open set if: $\forall x \in O$, $O \in F_x$.\\
+\indent It's straightforward to prove the following preoperty(derived from the definition of neighborhood family):
+\begin{enumerate}
+	\item any union(finite, countable, uncountable) of open sets is an open set
+	\item finite open sets' joint is an open set
+	\item $X \& \emptyset$ are open sets
+\end{enumerate}
+
+\subsection{Formation 2: Starting from Open Sets}
+We've found out that it's possible to define the property of open sets from the definition of neighorhood. It's also possible vice versa.\\
+\textbf{Primitive Definition of Open Sets: }\\
+\indent Given a set $X$, construct a family $F$ ,which consists of subsets of $X$. $(X, F)$ is called a topology on $X$, and the members of $F$ are called open sets, if $F$ satisfies:
+\begin{enumerate}
+	\item any union(finite, countable, uncountable) of open sets is an open set
+	\item finite open sets' joint is an open set
+	\item $X \& \emptyset$ are open sets	
+\end{enumerate}
+A set $X$ with $F$ satisfying above conditions are called topological space$(X, F)$.\\
+
+\indent We can prove this definition complies with Formation 1.
+\newpage
+
+\indent we can then define neighborhood:\\
+$N_x$ is called the neighborhood of $x \in X$ if $\exists O \in F$, s.t. $x \in O \subseteq N_x$.\\
+\indent Therefore, defining \textbf{Open Sets} is equivalent to defining \textbf{Neighborhood}, and both defines \textbf{topology} on set $X$.
+\\ \indent There're many kinds of $T-space$, for instance:\\
+\textbf{Hausdorff Topological Space}\\
+\indent \textbf{Definition: }Points $x$ and $y$ in a topological space $(X, F)$ can be separated by neighbourhoods if there exists a neighbourhood $N_x$ of $x$ and a neighbourhood $N_y$ of $y$ such that $N_x$ and $N_y$ are disjoint. $(X, F)$ is a Hausdorff space if all distinct points in $X$ are pairwise neighborhood-separable.
+\subsection{Other Definition Given a Topological Space $X$}
+\subsubsection{Closed Set}
+\textbf{Limit Point: }$A \subseteq X$, $p \in X$ is called a limit point if $\forall N_p$ includes at least one member of $A - \{p\}$.\\
+\indent \textbf{Closed Set: } A set is closed if and only if it includes all its limit points.
+
+\section{Measurability}
+\subsection{$\sigma - algebra$}
+\textbf{Definition: } A collection $\mathcal{M}$ of subsets of $X$ is called a $\sigma-algebra$ in $X$ if:
+\begin{enumerate}
+	\item $X \in \mathcal{M}$
+	\item $\forall A \in \mathcal{M}, A^c \in \mathcal{M}$
+	\item countable union of members of $\mathcal{M}$ still belongs to $\mathcal{M}$
+\end{enumerate}
+\indent It can be shown that there are many ways to select a $\sigma-algebra$ in $X$. For any collection of subsets in $X$, named $\mathcal{F}$, we can find a smallest $\sigma-algebra$ generated by $\mathcal{F}$ called $\mathcal{M^{*}}$, such that $\mathcal{F} \subseteq \mathcal{M^{*}}$.\\
+\indent It is intuitive to remember the definition by thinking about probability. 
+\begin{enumerate}
+	\item $P(\Omega) = 1$
+	\item $P(A^c) = 1 - P(A)$
+	\item if we know $P(A_i)$, we can calculate their countable unions' $P$
+\end{enumerate}
+
+\subsection{measurable space}
+With a set $X$ equipped with $\sigma-algebra$, we can define measurability with respect to the selection of $\mathcal{M}$: \\
+\indent if $\mathcal{M}$ is a $\sigma-algebra$ in $X$, then $(X, \mathcal{M})$ is called a measurable space. The members of $\mathcal{M}$ is called measurable sets in $X$.
+
+\subsection{Borel Sets}
+\textbf{Definition: }Let $(X, F)$ be a topological space(where $F$ is the collection of all open sets). There exists a smallest $\sigma-algebra$ $\mathcal{B}$ in $(X, F)$ such that for all $O \in F$, $O \in \mathcal{B}$. The members of $\mathcal{B}$ are called the Borel Sets in $(X, F)$.\\
+\indent A \textbf{Borel Measure} on a topological space $(X, F)$ is a measure that is defined on all open sets (and thus on all Borel sets).
+
+\section{Probability}
+\subsection{Probability Space}
+A probability space $(\Omega, \mathcal{F}, \mathcal{P})$ is defined by three part:
+\begin{enumerate}
+	\item A sample space, the set of all possible outcomes(sample paths) $\Omega$
+	\item A collection of all events(subsets of $\Omega$) $\mathcal{F}$, which is a $\sigma-algebra$
+	\item A mapping $\mathcal{P}: A \mapsto \mathcal{R}, \forall A \in \mathcal{F}$ 
+\end{enumerate}
+
+
+
+\end{document}
