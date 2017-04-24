@@ -1,12 +1,66 @@
 \documentclass[a4paper, 12pt]{article}
 \usepackage{indentfirst}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \title{\textbf{Stochastic Analysis}}
 \author{Steven Shen}
 \begin{document}
 \maketitle
 
 \section{Foundation}
-A stochastic process is a collection of $R.V.$ $X = {X_t; 0 \leq t < \infty}$ on sample space $(\Omega, \mathcal{F})$, which take values in a second measurable state space $(\mathcal{R}^d, \mathcal{B}(\mathcal{R}^d))$
+A stochastic process is a collection of $R.V.$: $X = \{X_t; 0 \leq t < \infty\}$ on sample space $(\Omega, \mathcal{F})$, which take values in a second measurable state space $(\mathcal{R}^d, \mathcal{B}(\mathcal{R}^d))$.
 
+\section{Understanding $\sigma-algebra$}
+
+\subsection{Conditional Expectation}
+$\mathbb{E}[X|\mathcal{G}]$ is the unique random variable that satisfies:
+\begin{enumerate}
+	\item $\mathbb{E}[X|\mathcal{G}]$ is $\mathcal{G}-measurable$
+	\item $\int_A \mathbb{E}[X|\mathcal{G}](w) d\mathbb{P}(w) = \int_A X(w) d\mathbb{P}(w)$, for all $A \in \mathcal{G}$
+\end{enumerate}
+
+\section{Ito Integral}
+\textbf{Property of $I(t)$: }
+\begin{enumerate}
+	\item Continuity
+	\item $\mathcal{F}(t)-measurable$
+	\item Linearity
+	\item Martingale
+	\item $Isometry:$ $\mathbb{E}I^2(t) = \mathbb{E}\int^t_0{\Delta^2(u) du}$
+	\item $QV(t) = [I, I](t) = \int^t_0{\Delta^2(u) du}$ 
+\end{enumerate}
+
+\indent There is a useful exercise on Shreve $P_{151} - 4.4.11$.
+
+\section{Risk-Neutral Measure}
+
+\subsection{Change of Measure}
+In $(\Omega, \mathcal{F}, \mathbb{P})$, $R.V.$ $Z$ is a.s. nonnegative, $\mathbb{E}Z = 1$.\\
+\indent Then for all $A \in \mathcal{F}$, we can define $\widetilde{\mathbb{P}}(A) = \int_A{Z(w)d\mathbb{P}(w)}$.
+
+\subsection{Radon-Nikodym Derivative Process}
+We have $(\Omega, \mathcal{F}, \mathbb{P})$ and $filtration$ $\mathcal{F}(t)$ defined on $0 \leq t \leq T$($T$ fixed). $R.V.$ $Z$ is a.s. nonnegative, $\mathbb{E}Z = 1$. Define $\widetilde{\mathbb{P}}$ as in previous subsection.\\
+\indent Define the Radon-Nikodym Derivative Process to be $Z(t) = \mathbb{E}[Z|\mathcal{F}(t)]$, $Z(t)$ is a $martingale$ with respect to $\mathcal{F}(t)$.\\
+\textbf{Property of $Z(t)$: }
+\begin{enumerate}
+	\item if $Y$ is a $\mathcal{F}(t)-measurable$ $R.V.$, then $\widetilde{\mathbb{E}}Y = \mathbb{E}[YZ(t)]$
+	\item if $0 \leq s \leq t \leq T$, $Y$ is a $\mathcal{F}(t)-measurable$ $R.V.$, then \\$Z(s) \widetilde{\mathbb{E}}[Y|\mathcal{F}(s)] = \mathbb{E}[YZ(t)|\mathcal{F}(s)]$
+\end{enumerate}
+
+\subsection{Girsanov Theorem, one dimension}
+
+\subsection{Martingale Representation Theorem, one dimension}
+
+\subsection{Application of Risk-Neutral}
+
+\section{Stochastic Differentiation Equations}
+
+\subsection{Markov Property}
+
+\subsection{Feynmann-Kac Theorem, one dimension}
+
+\subsection{Kolmogorov Backward \& Forward Equation}
+$Shreve$ $P_{291}$
+
+\subsection{Volatility Smile \& Surface}
 \end{document}
