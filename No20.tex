@@ -1,0 +1,49 @@
+%!TEX TS-program = xelatex  
+%!TEX encoding = UTF-8 Unicode  
+\documentclass[11pt,a4paper]{paper}
+\usepackage{float}
+\usepackage{indentfirst}
+\usepackage{geometry} 
+\usepackage{enumitem} 
+\usepackage{amsmath}      
+\usepackage{fontspec,xltxtra,xunicode}  
+
+\usepackage[]{xeCJK}
+\setCJKmainfont[BoldFont=STKaitiSC-Bold, ItalicFont=STHeitiSC-Light]{STSong}
+\setCJKsansfont[BoldFont=STHeiti]{STXihei}
+\setCJKmonofont{STFangsong}
+
+%\defaultfontfeatures{Mapping=tex-text}  
+%\setromanfont{SimSun} %设置中文字体  
+\XeTeXlinebreaklocale “zh”  
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt %文章内中文自动换行  
+      
+
+\title{Black-Scholes Formula, a physicist's perspective}
+\author{}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{(a)}
+Rewritten Using $Brownian$ $Motion$: \\$ds(t) = \phi s(t) dt + \sigma s(t) dW(t)$, where $W(t)$ is a standard brownian motion.\\\indent To illustrate the relation between \textbf{Gaussian Noise} and \textbf{Brownian Motion}, consider when using $R(t)$, we're actually suggesting $s(t + \epsilon) = s(t) + \phi s(t) \epsilon + \sigma R \epsilon$. In this case, $R \sim \mathcal{N}(0, \frac{1}{\epsilon})$, therefore $R \epsilon \sim \mathcal{N}(0, \epsilon)$, which can be characterized as $W(t + \epsilon) - W(t)$. As $\epsilon \rightarrow 0$, $W(t + \epsilon) - W(t) \rightarrow dW(t)$. (It's really clearer to use $brownian$ $motion$ notation.) Brownian motion has the property that $dW(t)dW(t) = dt$, $dW(t) dt = 0$.\\
+\indent The original statement can be rewritten as: \\$df(t, s(t)) = f_t dt + \frac{1}{2}\sigma^2s^2f_{ss}dt + \phi s f_s dt + \sigma s dW(t)$\\
+\indent According to $Taylor$ $expansion$ $formula$, we can write
+\begin{equation} df = f_t dt + f_s ds + \frac{1}{2}\{f_{tt} dt^2 + (f_{ts} + f_{st})dt ds(t) + f_{ss} ds(t)ds(t) \} + o(dt^2) = f_t dt + f_s ds + \frac{1}{2} f_{ss} ds(t)ds(t)
+\end{equation} 
+\indent Considering $ds(t) = \phi s(t) dt + \sigma s(t) dW(t)$ $\&$ $dW(t)dW(t) = dt$, $dW(t) dt = 0$, we have $df = f_t dt + \frac{1}{2}\sigma^2s^2f_{ss}dt + \phi s f_s dt + \sigma s dW(t)$.
+
+\section{(b)}
+$c = c(t, s(t))$, $d\Pi = c_t dt + c_s ds + \frac{1}{2}c_{ss} ds ds - c_s ds$.\\
+$d\Pi = c_t dt + \frac{1}{2} c_{ss} \sigma^2 s^2 dt$
+
+\section{(c)}
+$d\Pi = r(c - c_s s)dt = c_t dt + \frac{1}{2} c_{ss} \sigma^2 s^2 dt$\\
+$c_t + \frac{1}{2}\sigma^2 s^2 c_{ss} + rsc_s - rc = 0$
+
+\section{d}
+Change variable $s = e^x$, we have $c_x = e^{-x}c_s$.\\
+$c_t = rc - rsc_s - \frac{1}{2}\sigma^2 s^2 c_{ss} = (r - (r - \frac{1}{2}\sigma^2)\frac{\partial}{\partial x} - \frac{1}{2}\sigma^2 \frac{\partial^2}{\partial x^2}) c$.\\
+\indent Therefore $H_{BS} = (1 - \frac{\partial}{\partial x})(r + \frac{1}{2} \sigma^2 \frac{\partial}{\partial x})$. 
+
+\end{document}
