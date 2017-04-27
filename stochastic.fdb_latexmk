@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1493046839 "stochastic.tex" "stochastic.pdf" "stochastic" 1493046840
+["pdflatex"] 1493284217 "stochastic.tex" "stochastic.pdf" "stochastic" 1493284218
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -34,9 +34,9 @@
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
   "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1479650374 3520377 6d9d7c4174b926bd307b5060c8b23095 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "stochastic.aux" 1493046839 1391 aeea43edcde7fa550ece4ba1abd5b4ab ""
-  "stochastic.tex" 1493046837 2634 5da8dc430fb9ae03fc43e1a94d977c53 ""
+  "stochastic.aux" 1493284217 1978 64dbb48036984514242b41423fd78483 ""
+  "stochastic.tex" 1493284215 3825 4503fa97f7eaaeaaf2ebcf4e47c4d0f0 ""
   (generated)
   "stochastic.log"
-  "stochastic.aux"
   "stochastic.pdf"
+  "stochastic.aux"

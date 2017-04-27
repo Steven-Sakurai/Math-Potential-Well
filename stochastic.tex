@@ -10,7 +10,11 @@
 \section{Foundation}
 A stochastic process is a collection of $R.V.$: $X = \{X_t; 0 \leq t < \infty\}$ on sample space $(\Omega, \mathcal{F})$, which take values in a second measurable state space $(\mathcal{R}^d, \mathcal{B}(\mathcal{R}^d))$.
 
-\section{Understanding $\sigma-algebra$}
+\subsection{Understanding $\sigma-algebra$}
+
+\subsection{Filtration}
+A non-decreasing family $\{ \mathcal{F}_t; t \geq 0 \}$ of $sub-\sigma-field$ of $\mathcal{F}$: $\mathcal{F}_s \subseteq \mathcal{F}_t \subseteq \mathcal{F}$ for $0 \leq s < t < \infty$. Set $\mathcal{F}_{\infty} = \sigma(\bigcup_{t \geq 0}\mathcal{F}_t)$.\\
+\indent Given a process $X(t)$, the simplest choice of a filtration is $\mathcal{F}_t ^X = \sigma(X_s; 0 \leq s \leq t)$.
 
 \subsection{Conditional Expectation}
 $\mathbb{E}[X|\mathcal{G}]$ is the unique random variable that satisfies:
@@ -18,6 +22,23 @@ $\mathbb{E}[X|\mathcal{G}]$ is the unique random variable that satisfies:
 	\item $\mathbb{E}[X|\mathcal{G}]$ is $\mathcal{G}-measurable$
 	\item $\int_A \mathbb{E}[X|\mathcal{G}](w) d\mathbb{P}(w) = \int_A X(w) d\mathbb{P}(w)$, for all $A \in \mathcal{G}$
 \end{enumerate}
+
+\subsection{Stopping Times}
+Consider a measurable space $(\Omega, \mathcal{F})$ equipped with a filtration $\{ \mathcal{F}_t \}$. A random time $T$ is a stopping time w.r.t. that filtration, if the event $\{ T \leq t \}$ belongs to $\mathcal{F}_t$, $\forall t \geq 0$. \\
+\indent Let $T$, $S$ be stopping times and $Z$ an integrable $R.V.$. We have:
+\begin{enumerate}
+	\item $\mathbb{E}[Z|{\mathcal{F}_T}] = \mathbb{E}[Z|{\mathcal{F}_{S \bigwedge T}}]$, P-a.s. on $\{ T \leq S \}$
+	\item $\mathbb{E}[\mathbb{E}[Z|{\mathcal{F}_T}]|\mathcal{F}_S] = \mathbb{E}[Z|{\mathcal{F}_{S \bigwedge T}}]$, P-a.s.
+\end{enumerate}
+\section{Brownian Motion}
+
+\subsection{Construction}
+
+\subsection{Levy Theorem}
+
+\subsection{First Passage Time}
+
+\subsection{Maximum of Brownian Motion with Drift}
 
 \section{Ito Integral}
 \textbf{Property of $I(t)$: }
