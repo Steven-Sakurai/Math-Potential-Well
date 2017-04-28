@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.11.20)  27 APR 2017 17:10
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.11.20)  28 APR 2017 21:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -121,7 +121,18 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 ] [2]
-[3] (./stochastic.aux) ) 
+[3]
+Overfull \hbox (33.37167pt too wide) in paragraph at lines 117--119
+[]\OT1/cmr/m/n/12 P.26 $\OML/cmm/m/it/12 dX \OT1/cmr/m/n/12 = [] ^^A[]\OML/cmm/
+m/it/12 dSi \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 r\OT1/cmr/m/n/12 (\OML/cmm/m/it/
+12 X \OMS/cmsy/m/n/12 ^^@ [] \OT1/cmr/m/n/12 ^^A[]\OML/cmm/m/it/12 S[]\OT1/cmr/
+m/n/12 )\OML/cmm/m/it/12 dt$\OT1/cmr/m/n/12 , prove $\OML/cmm/m/it/12 d\OT1/cmr
+/m/n/12 (\OML/cmm/m/it/12 e[]X\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/1
+2 )) = [] ^^A[]\OML/cmm/m/it/12 d\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 e[]S[]\OT1/c
+mr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 ))$ 
+ []
+
+[4] (./stochastic.aux) ) 
 Here is how much of TeX's memory you used:
  1140 strings out of 493591
  12939 string characters out of 6143545
@@ -131,4 +142,4 @@ Here is how much of TeX's memory you used:
  1347 hyphenation exceptions out of 8191
  27i,6n,26p,291b,190s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on stochastic.pdf (3 pages).
+Output written on stochastic.pdf (4 pages).
