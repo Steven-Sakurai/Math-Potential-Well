@@ -1,0 +1,88 @@
+\documentclass[a4paper, 11pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{braket}
+\usepackage{indentfirst}
+\title{\textbf{Notes on Quantum Physics}}
+\author{Steven Shen}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Experimental Facts}
+\subsection{The Stern-Gerlach Experiment 1921~1922}
+For a heavy atom as a whole, magnetic moment $\mu$ is proportional to the electron spin $\overrightarrow{S}$, i.e. 
+$\overrightarrow{\mu} = \frac{e\overrightarrow{S}}{m_e c}$. Place a magnetic field $\overrightarrow{B}$, the interaction energy yields $ - \overrightarrow{\mu} \cdot \overrightarrow{B}$. Therefore, if $B_z$ is not homogeneous, then $F_z = \mu_z \partial_z B_z$.\\
+\indent We have a beam of silver atoms(47 electrons in total, with 46 of them having spherical symmetry, no net angular momentum, therefore the atom's angular momentum is sorely decided by the $47th$ electron), going through a $\overrightarrow{B}$ inhomogeneous in $B_z$. Then atoms will split in $z$ direction according to their spin. We only observe two distinct component on the other side, where $S_z = \pm \frac{\hbar}{2}$.\\
+\indent The experiment suggests quantization of the electron spin angular momentum.
+\subsection{Sequential SG Experiments}
+$Oven \Longrightarrow SG\hat{z}$ (filtering $S_z -$) $\Longrightarrow SG\hat{z} \Longrightarrow$ $S_z +$ only \\
+\indent $Oven \Longrightarrow SG\hat{z}$ (filtering $S_z -$) $\Longrightarrow SG\hat{x} \Longrightarrow$ $S_x+, S_x -$ \\
+\indent $Oven \Longrightarrow SG\hat{z}$ (filtering $S_z -$) $\Longrightarrow SG\hat{z} \Longrightarrow SG\hat{z} \Longrightarrow S_z +, S_z -$ \\
+\indent These results is similar to the polarization of light.\\
+\indent Suppose $x \bot y, x^{\prime}=\frac{1}{\sqrt{2}}(x + y)$ \\                                                  $\Longrightarrow x-filter \Longrightarrow y-filter \Longrightarrow$ No light \\
+$\Longrightarrow x-filter \Longrightarrow  x^{\prime}-filter \Longrightarrow y-filter \Longrightarrow$ $x_+, x_-$ \\
+\indent The experiment suggests that we cannot determine $S_z$ and $S_z$ simultaneously. Previous information is destroyed by the new apparatus. It also suggests the superposition principle.\\
+\indent Further we can use abstact vectors to represent the states in SG experiment on the basis of $\ket{S_z +}$ and $\ket{S_z -}$.
+\newpage
+
+\begin{subequations}
+$\ket{S_x}, \ket{S_y}, \ket{S_z}$'s relations:
+\begin{align}
+	\ket{S_z +} &= \frac{1}{\sqrt{2}}(\ket{S_z +} + \ket{S_z -}),\\
+	\ket{S_z -} &= \frac{1}{\sqrt{2}}(- \ket{S_z +} + \ket{S_z -}),\\
+	\ket{S_y +} &= \frac{1}{\sqrt{2}}(\ket{S_z +} + i \ket{S_z -}),\\
+	\ket{S_y -} &= \frac{1}{\sqrt{2}}(\ket{S_z +} - i \ket{S_z -})
+\end{align}
+\end{subequations}
+\indent This example is clear to demonstrate the abstractness of vector space. Quantum-mechanical states are to be represented by vectors in an abstract complex vector space.\\
+
+\section{Mathematics}
+
+\subsection{Dirac, Ket \& Bra}
+\subsubsection{Ket $\ket{\alpha}$ \& State Vector Space(Ket Space) $\mathcal{H}$}
+We want it clear in the beginning. When referring to ket vectors, we're speaking of functions in a functional vector space, ex. functions expanded in fourier forms.
+The dimension of the complex vector space is decided by the physics system's degree of freedom, ex. in the case of an electron's spin(upward \& downward), $dim = 2$.\\
+\indent A physical state is represented by a \textbf{state vector} in a complex vector space, called \textbf{ket}, denoted by $\ket{\alpha}$. All information about that state is contained in the vector. Our postulation of the existence of vectors to represent states already suggests the superposition principle.\\
+An observable, on the other hand, is represented by an operator which acts on the ket, on the left,\\
+\begin{equation}
+A \cdot (\ket{\alpha}) = A\ket{\alpha}
+\end{equation}
+\indent which yields another ket. If all kets of a system forms the space $\mathcal{H}$, an observable in that system is an operator on $\mathcal{H}$(operator defined as the same in linear algebra). Therefore, there should be eigenkets $\ket{\alpha'}$ of $A$,
+\begin{equation}
+A\ket{\alpha'} = \alpha' \ket{\alpha'}
+\end{equation}
+\indent Here $\alpha'$ is just a number. It's convention to `ket' an eigenvalue to stand for the corresponding eigenvector.
+The physical state corresponding to an eigenket is called an eigenstate:
+\begin{equation}
+S_z\ket{S_z +} = \frac{\hbar}{2} \ket{S_z +}, S_z\ket{S_z -} = - \frac{\hbar}{2} \ket{S_z -}
+\end{equation}
+\indent Next, we consider a $N-dim$ vector space $\mathcal{H}$, spanned according to the $N$ eigenkets of observable $A$. Then $\forall \ket{\alpha} \in \mathcal{H}$, $\ket{\alpha} = \sum_{\alpha'} c_{\alpha'}\ket{\alpha'}$.
+
+\subsubsection{Bra $\bra{\alpha}$, Dual Space(Bra Space) $\mathcal{H}^*$ and Inner Products}
+Bra Space is dual to Ket Space. Corresponding to every $\ket{\alpha}$ in $\mathcal{H}$, there exists a bra in dual space $\mathcal{H}^*$, denoted by $\bra{\alpha}$.\\
+\indent Inner product is defined as a mapping $i(*, *): \mathcal{H}\times\mathcal{H} \mapsto \mathbb{C}$. Think of $i(*, *)$ as a machine receiving two kets and returns a complex number. We all know how the inner product should be defined.\\
+\indent Dual space is by now unclear. Yet with $i(*, *)$ we can deduce a dual space with a particular $i(*, *)$ defined. With $i(*, *)$ and $\forall f \in \mathcal{H}$, we have $i(f, *): \mathcal{H} \mapsto \mathbb{C}$, $i(f, *) \in \mathcal{H}^*$. Moreover, this is indeed a \textbf{one-to-one mapping}:
+\begin{equation}
+\forall \eta \in \mathcal{H}^*, \exists f_{\eta} \in \mathcal{H}, s.t. \forall g \in \mathcal{H}, \eta(g) = i(f_{\eta}, g)
+\end{equation}
+\indent Denote this mapping $v: \mathcal{H}^* \mapsto \mathcal{H}$, and denote $v^{-1}(\eta) = g_{\eta}$. \\
+(Right now I can only understand dual space this way, remained to be uncovered.)\\
+\indent Now we know a bra $\bra{\eta}$ acts on a ket $\ket{f}$ yields the $(g_{\eta}, f)$, which is called the inner product of $\bra{\eta}$ and $\ket{f}$ in physics, when mathematically this is inacurate.\\
+\indent In physics, we often put a complex vector in $\mathcal{H}$ into a bra, ex. $\bra{\alpha}$, which actually means that $\bra{\alpha} = v^{-1}(\ket{\alpha})$. Though very confusing, we only need to remember finally $\bra{\eta}$ acts on $\ket{f}$ yields $(\ket{\eta}, \ket{f})$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
