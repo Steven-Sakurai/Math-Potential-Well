@@ -1,6 +1,11 @@
 # Time Series Analysis Project's Readme
   
 Right now the repo has the following structure:  
+Downloaded data stored inside data.  
+'proposal.tex' is the raw file for the proposal. 'proposal.pdf' is the output. You should install latex distribution first.  
+
+
+
   
 ─steven@sukurais-mbp ~/GIT/maths/tsa_project  ‹master*›    
 ╰─➤  tree    
