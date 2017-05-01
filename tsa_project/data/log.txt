@@ -1,0 +1,352 @@
+╭─steven@sukurais-mbp ~/Downloads
+╰─➤  ./get_data
+URL transformed to HTTPS due to an HSTS policy
+--2017-05-01 13:46:43--  https://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts+dSST.txt
+Resolving data.giss.nasa.gov... 128.183.4.33
+Connecting to data.giss.nasa.gov|128.183.4.33|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 15988 (16K) [text/plain]
+Saving to: ‘GLB.Ts+dSST.txt.1’
+
+GLB.Ts+dSST.txt.1   100%[=================>]  15.61K  65.0KB/s    in 0.2s
+
+2017-05-01 13:46:44 (65.0 KB/s) - ‘GLB.Ts+dSST.txt.1’ saved [15988/15988]
+
+URL transformed to HTTPS due to an HSTS policy
+--2017-05-01 13:46:44--  https://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts+dSST.txt
+Resolving data.giss.nasa.gov... 128.183.4.33
+Connecting to data.giss.nasa.gov|128.183.4.33|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 15992 (16K) [text/plain]
+Saving to: ‘NH.Ts+dSST.txt.1’
+
+NH.Ts+dSST.txt.1    100%[=================>]  15.62K  65.0KB/s    in 0.2s
+
+2017-05-01 13:46:45 (65.0 KB/s) - ‘NH.Ts+dSST.txt.1’ saved [15992/15992]
+
+URL transformed to HTTPS due to an HSTS policy
+--2017-05-01 13:46:45--  https://data.giss.nasa.gov/gistemp/tabledata_v3/SH.Ts+dSST.txt
+Resolving data.giss.nasa.gov... 128.183.4.33
+Connecting to data.giss.nasa.gov|128.183.4.33|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 15992 (16K) [text/plain]
+Saving to: ‘SH.Ts+dSST.txt.1’
+
+SH.Ts+dSST.txt.1    100%[=================>]  15.62K  63.7KB/s    in 0.2s
+
+2017-05-01 13:46:47 (63.7 KB/s) - ‘SH.Ts+dSST.txt.1’ saved [15992/15992]
+
+URL transformed to HTTPS due to an HSTS policy
+--2017-05-01 13:46:47--  https://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts.txt
+Resolving data.giss.nasa.gov... 128.183.4.33
+Connecting to data.giss.nasa.gov|128.183.4.33|:443... connected.
+  1 wget http://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts+dSST.txt
+HTTP request sent, awaiting response... 200 OK
+Length: 15987 (16K) [text/plain]
+Saving to: ‘GLB.Ts.txt.1’
+
+GLB.Ts.txt.1        100%[=================>]  15.61K  63.7KB/s    in 0.2s
+
+2017-05-01 13:46:48 (63.7 KB/s) - ‘GLB.Ts.txt.1’ saved [15987/15987]
+
+URL transformed to HTTPS due to an HSTS policy
+--2017-05-01 13:46:48--  https://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts.txt
+Resolving data.giss.nasa.gov... 128.183.4.33
+Connecting to data.giss.nasa.gov|128.183.4.33|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 15991 (16K) [text/plain]
+Saving to: ‘NH.Ts.txt.1’
+
+NH.Ts.txt.1         100%[=================>]  15.62K  65.1KB/s    in 0.2s
+
+2017-05-01 13:46:49 (65.1 KB/s) - ‘NH.Ts.txt.1’ saved [15991/15991]
+
+URL transformed to HTTPS due to an HSTS policy
+--2017-05-01 13:46:49--  https://data.giss.nasa.gov/gistemp/tabledata_v3/SH.Ts.txt
+Resolving data.giss.nasa.gov... 128.183.4.33
+Connecting to data.giss.nasa.gov|128.183.4.33|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 15991 (16K) [text/plain]
+Saving to: ‘SH.Ts.txt.1’
+
+SH.Ts.txt.1         100%[=================>]  15.62K  63.0KB/s    in 0.2s
+
+2017-05-01 13:46:51 (63.0 KB/s) - ‘SH.Ts.txt.1’ saved [15991/15991]
+
+--2017-05-01 13:46:51--  https://web.archive.org/web/20150629220659/http://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts.txt
+Resolving web.archive.org... 243.185.187.39, 200:2:2e52:ae44::
+Connecting to web.archive.org|243.185.187.39|:443... ^C
+╭─steven@sukurais-mbp ~/Downloads
+╰─➤  vim get_data                                                       130 ↵
+╭─steven@sukurais-mbp ~/Downloads
+╰─➤  ./get_data
+URL transformed to HTTPS due to an HSTS policy
+--2017-05-01 13:47:12--  https://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts+dSST.txt
+Resolving data.giss.nasa.gov... 128.183.4.33
+Connecting to data.giss.nasa.gov|128.183.4.33|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 15988 (16K) [text/plain]
+Saving to: ‘GLB.Ts+dSST.txt.2’
+
+GLB.Ts+dSST.txt.2   100%[=================>]  15.61K  65.2KB/s    in 0.2s
+
+2017-05-01 13:47:14 (65.2 KB/s) - ‘GLB.Ts+dSST.txt.2’ saved [15988/15988]
+
+URL transformed to HTTPS due to an HSTS policy
+--2017-05-01 13:47:14--  https://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts+dSST.txt
+Resolving data.giss.nasa.gov... 128.183.4.33
+Connecting to data.giss.nasa.gov|128.183.4.33|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 15992 (16K) [text/plain]
+Saving to: ‘NH.Ts+dSST.txt.2’
+
+NH.Ts+dSST.txt.2    100%[=================>]  15.62K  63.5KB/s    in 0.2s
+
+2017-05-01 13:47:15 (63.5 KB/s) - ‘NH.Ts+dSST.txt.2’ saved [15992/15992]
+
+URL transformed to HTTPS due to an HSTS policy
+--2017-05-01 13:47:15--  https://data.giss.nasa.gov/gistemp/tabledata_v3/SH.Ts+dSST.txt
+Resolving data.giss.nasa.gov... 128.183.4.33
+Connecting to data.giss.nasa.gov|128.183.4.33|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 15992 (16K) [text/plain]
+Saving to: ‘SH.Ts+dSST.txt.2’
+
+SH.Ts+dSST.txt.2    100%[=================>]  15.62K  78.7KB/s    in 0.2s
+
+2017-05-01 13:47:16 (78.7 KB/s) - ‘SH.Ts+dSST.txt.2’ saved [15992/15992]
+
+URL transformed to HTTPS due to an HSTS policy
+--2017-05-01 13:47:16--  https://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts.txt
+Resolving data.giss.nasa.gov... 128.183.4.33
+Connecting to data.giss.nasa.gov|128.183.4.33|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 15987 (16K) [text/plain]
+Saving to: ‘GLB.Ts.txt.2’
+
+GLB.Ts.txt.2        100%[=================>]  15.61K  65.0KB/s    in 0.2s
+
+2017-05-01 13:47:17 (65.0 KB/s) - ‘GLB.Ts.txt.2’ saved [15987/15987]
+
+URL transformed to HTTPS due to an HSTS policy
+--2017-05-01 13:47:17--  https://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts.txt
+Resolving data.giss.nasa.gov... 128.183.4.33
+Connecting to data.giss.nasa.gov|128.183.4.33|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 15991 (16K) [text/plain]
+Saving to: ‘NH.Ts.txt.2’
+
+NH.Ts.txt.2         100%[=================>]  15.62K  64.4KB/s    in 0.2s
+
+2017-05-01 13:47:19 (64.4 KB/s) - ‘NH.Ts.txt.2’ saved [15991/15991]
+
+URL transformed to HTTPS due to an HSTS policy
+--2017-05-01 13:47:19--  https://data.giss.nasa.gov/gistemp/tabledata_v3/SH.Ts.txt
+Resolving data.giss.nasa.gov... 128.183.4.33
+Connecting to data.giss.nasa.gov|128.183.4.33|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 15991 (16K) [text/plain]
+Saving to: ‘SH.Ts.txt.2’
+
+SH.Ts.txt.2         100%[=================>]  15.62K  64.7KB/s    in 0.2s
+
+2017-05-01 13:47:20 (64.7 KB/s) - ‘SH.Ts.txt.2’ saved [15991/15991]
+
+--2017-05-01 13:47:20--  http://www.esrl.noaa.gov/psd/enso/mei/table.html
+Resolving www.esrl.noaa.gov... 140.172.12.69, 2610:20:8800:6001::45
+Connecting to www.esrl.noaa.gov|140.172.12.69|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://www.esrl.noaa.gov/psd/enso/mei/table.html [following]
+--2017-05-01 13:47:21--  https://www.esrl.noaa.gov/psd/enso/mei/table.html
+Connecting to www.esrl.noaa.gov|140.172.12.69|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 8077 (7.9K) [text/html]
+Saving to: ‘MEI.html’
+
+MEI.html            100%[=================>]   7.89K  --.-KB/s    in 0s
+
+2017-05-01 13:47:22 (308 MB/s) - ‘MEI.html’ saved [8077/8077]
+
+--2017-05-01 13:47:22--  http://www.sidc.be/silso/DATA/SN_m_tot_V2.0.txt
+Resolving www.sidc.be... 193.190.230.45
+Connecting to www.sidc.be|193.190.230.45|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 122322 (119K) [text/plain]
+Saving to: ‘SN_m_tot_V2.0.txt’
+
+SN_m_tot_V2.0.txt   100%[=================>] 119.46K  4.34KB/s    in 22s
+
+2017-05-01 13:47:52 (5.49 KB/s) - ‘SN_m_tot_V2.0.txt’ saved [122322/122322]
+
+--2017-05-01 13:47:52--  http://lasp.colorado.edu/home/sorce/files/2011/09/TSI_TIM_Reconstruction.txt
+Resolving lasp.colorado.edu... 128.138.131.2
+Connecting to lasp.colorado.edu|128.138.131.2|:80... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2017-05-01 13:47:54 ERROR 404: Not Found.
+
+--2017-05-01 13:47:54--  http://vortex.nsstc.uah.edu/data/msu/t2lt/uahncdc_lt_5.6.txt
+Resolving vortex.nsstc.uah.edu... 207.157.71.100
+Connecting to vortex.nsstc.uah.edu|207.157.71.100|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: http://www.nsstc.uah.edu/data/msu/t2lt/uahncdc_lt_5.6.txt [following]
+--2017-05-01 13:47:58--  http://www.nsstc.uah.edu/data/msu/t2lt/uahncdc_lt_5.6.txt
+Resolving www.nsstc.uah.edu... 207.157.71.100
+Reusing existing connection to vortex.nsstc.uah.edu:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 79492 (78K) [text/plain]
+Saving to: ‘uahncdc_lt_5.6.txt’
+
+uahncdc_lt_5.6.txt  100%[=================>]  77.63K  6.82KB/s    in 11s
+
+2017-05-01 13:48:10 (6.82 KB/s) - ‘uahncdc_lt_5.6.txt’ saved [79492/79492]
+
+--2017-05-01 13:48:10--  http://vortex.nsstc.uah.edu/data/msu/v6.0beta/tlt/oldversions/uahncdc_lt_6.0beta3.txt
+Resolving vortex.nsstc.uah.edu... 207.157.71.100
+Connecting to vortex.nsstc.uah.edu|207.157.71.100|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: http://www.nsstc.uah.edu/data/msu/v6.0beta/tlt/oldversions/uahncdc_lt_6.0beta3.txt [following]
+--2017-05-01 13:48:11--  http://www.nsstc.uah.edu/data/msu/v6.0beta/tlt/oldversions/uahncdc_lt_6.0beta3.txt
+Resolving www.nsstc.uah.edu... 207.157.71.100
+Reusing existing connection to vortex.nsstc.uah.edu:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 76611 (75K) [text/plain]
+Saving to: ‘uahncdc_lt_6.0beta3.txt’
+
+uahncdc_lt_6.0beta3 100%[=================>]  74.82K  34.4KB/s    in 2.2s
+
+2017-05-01 13:48:13 (34.4 KB/s) - ‘uahncdc_lt_6.0beta3.txt’ saved [76611/76611]
+
+--2017-05-01 13:48:13--  http://vortex.nsstc.uah.edu/data/msu/v6.0beta/tlt/uahncdc_lt_6.0beta4.txt
+Resolving vortex.nsstc.uah.edu... 207.157.71.100
+Connecting to vortex.nsstc.uah.edu|207.157.71.100|:80... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: http://www.nsstc.uah.edu/data/msu/v6.0beta/tlt/uahncdc_lt_6.0beta4.txt [following]
+--2017-05-01 13:48:14--  http://www.nsstc.uah.edu/data/msu/v6.0beta/tlt/uahncdc_lt_6.0beta4.txt
+Resolving www.nsstc.uah.edu... 207.157.71.100
+Reusing existing connection to vortex.nsstc.uah.edu:80.
+HTTP request sent, awaiting response... 404 Not Found
+2017-05-01 13:48:14 ERROR 404: Not Found.
+
+URL transformed to HTTPS due to an HSTS policy
+--2017-05-01 13:48:14--  https://www.esrl.noaa.gov/gmd/webdata/grad/mloapt/mlo_transmission.dat
+Resolving www.esrl.noaa.gov... 140.172.12.69, 2610:20:8800:6001::45
+Connecting to www.esrl.noaa.gov|140.172.12.69|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 22330 (22K) [text/plain]
+Saving to: ‘mlo_transmission.dat’
+
+mlo_transmission.da 100%[=================>]  21.81K  89.1KB/s    in 0.2s
+
+2017-05-01 13:48:15 (89.1 KB/s) - ‘mlo_transmission.dat’ saved [22330/22330]
+
+URL transformed to HTTPS due to an HSTS policy
+--2017-05-01 13:48:15--  https://www.esrl.noaa.gov/gmd/webdata/grad/mloapt/mlo_transmission.gif
+Resolving www.esrl.noaa.gov... 140.172.12.69, 2610:20:8800:6001::45
+Connecting to www.esrl.noaa.gov|140.172.12.69|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 11725 (11K) [image/gif]
+Saving to: ‘mlo_transmission.gif’
+
+mlo_transmission.gi 100%[=================>]  11.45K  --.-KB/s    in 0s
+
+2017-05-01 13:48:18 (60.8 MB/s) - ‘mlo_transmission.gif’ saved [11725/11725]
+
+--2017-05-01 13:48:18--  ftp://aftp.cmdl.noaa.gov/data/trace_gases/co2/flask/surface/co2_brw_surface-flask_1_ccgg_month.txt
+           => ‘co2_brw_surface-flask_1_ccgg_month.txt’
+Resolving aftp.cmdl.noaa.gov... 140.172.200.31
+Connecting to aftp.cmdl.noaa.gov|140.172.200.31|:21... connected.
+Logging in as anonymous ... Logged in!
+==> SYST ... done.    ==> PWD ... done.
+==> TYPE I ... done.  ==> CWD (1) /data/trace_gases/co2/flask/surface ... done.
+==> SIZE co2_brw_surface-flask_1_ccgg_month.txt ... 14841
+==> PASV ... done.    ==> RETR co2_brw_surface-flask_1_ccgg_month.txt ... done.
+Length: 14841 (14K) (unauthoritative)
+
+co2_brw_surface-fla 100%[=================>]  14.49K  --.-KB/s    in 0.01s
+
+2017-05-01 13:48:28 (1.05 MB/s) - ‘co2_brw_surface-flask_1_ccgg_month.txt’ saved [14841]
+
+--2017-05-01 13:48:28--  ftp://aftp.cmdl.noaa.gov/data/trace_gases/co2/flask/surface/co2_mlo_surface-flask_1_ccgg_month.txt
+           => ‘co2_mlo_surface-flask_1_ccgg_month.txt’
+Resolving aftp.cmdl.noaa.gov... 140.172.200.31
+Connecting to aftp.cmdl.noaa.gov|140.172.200.31|:21... connected.
+Logging in as anonymous ... Logged in!
+==> SYST ... done.    ==> PWD ... done.
+==> TYPE I ... done.  ==> CWD (1) /data/trace_gases/co2/flask/surface ... done.
+==> SIZE co2_mlo_surface-flask_1_ccgg_month.txt ... 13896
+==> PASV ... done.    ==> RETR co2_mlo_surface-flask_1_ccgg_month.txt ... done.
+Length: 13896 (14K) (unauthoritative)
+
+co2_mlo_surface-fla 100%[=================>]  13.57K  6.11KB/s    in 2.2s
+
+2017-05-01 13:48:39 (6.11 KB/s) - ‘co2_mlo_surface-flask_1_ccgg_month.txt’ saved [13896]
+
+--2017-05-01 13:48:39--  ftp://aftp.cmdl.noaa.gov/data/trace_gases/co2/flask/surface/co2_smo_surface-flask_1_ccgg_month.txt
+           => ‘co2_smo_surface-flask_1_ccgg_month.txt’
+Resolving aftp.cmdl.noaa.gov... 140.172.200.31
+Connecting to aftp.cmdl.noaa.gov|140.172.200.31|:21... connected.
+Logging in as anonymous ... Logged in!
+==> SYST ... done.    ==> PWD ... done.
+==> TYPE I ... done.  ==> CWD (1) /data/trace_gases/co2/flask/surface ... done.
+==> SIZE co2_smo_surface-flask_1_ccgg_month.txt ... 14232
+==> PASV ... done.    ==> RETR co2_smo_surface-flask_1_ccgg_month.txt ... done.
+Length: 14232 (14K) (unauthoritative)
+
+co2_smo_surface-fla 100%[=================>]  13.90K  --.-KB/s    in 0.02s
+
+2017-05-01 13:48:48 (608 KB/s) - ‘co2_smo_surface-flask_1_ccgg_month.txt’ saved [14232]
+
+--2017-05-01 13:48:48--  ftp://aftp.cmdl.noaa.gov/data/trace_gases/co2/flask/surface/co2_spo_surface-flask_1_ccgg_month.txt
+           => ‘co2_spo_surface-flask_1_ccgg_month.txt’
+Resolving aftp.cmdl.noaa.gov... 140.172.200.31
+Connecting to aftp.cmdl.noaa.gov|140.172.200.31|:21... connected.
+Logging in as anonymous ... Logged in!
+==> SYST ... done.    ==> PWD ... done.
+==> TYPE I ... done.  ==> CWD (1) /data/trace_gases/co2/flask/surface ... done.
+==> SIZE co2_spo_surface-flask_1_ccgg_month.txt ... 13190
+==> PASV ... done.    ==> RETR co2_spo_surface-flask_1_ccgg_month.txt ... done.
+Length: 13190 (13K) (unauthoritative)
+
+co2_spo_surface-fla 100%[=================>]  12.88K  --.-KB/s    in 0.01s
+
+2017-05-01 13:48:52 (1.32 MB/s) - ‘co2_spo_surface-flask_1_ccgg_month.txt’ saved [13190]
+
+--2017-05-01 13:48:52--  http://www.eea.europa.eu/data-and-maps/daviz/atmospheric-concentration-of-carbon-dioxide-1/download.csv
+Resolving www.eea.europa.eu... 87.54.7.131, 87.54.7.130
+Connecting to www.eea.europa.eu|87.54.7.131|:80... connected.
+  4 wget http://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts.txt
+HTTP request sent, awaiting response... 200 OK
+Length: 1821 (1.8K) [application/csv]
+Saving to: ‘co2-historical.csv’
+
+co2-historical.csv  100%[=================>]   1.78K  --.-KB/s    in 0s
+
+2017-05-01 13:48:54 (42.4 MB/s) - ‘co2-historical.csv’ saved [1821/1821]
+
+URL transformed to HTTPS due to an HSTS policy
+--2017-05-01 13:48:54--  https://www.esrl.noaa.gov/psd/data/correlation/amon.us.data
+Resolving www.esrl.noaa.gov... 140.172.12.69, 2610:20:8800:6001::45
+Connecting to www.esrl.noaa.gov|140.172.12.69|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 8143 (8.0K) [text/plain]
+Saving to: ‘amon.us.data’
+
+amon.us.data        100%[=================>]   7.95K  --.-KB/s    in 0s
+
+2017-05-01 13:48:55 (199 MB/s) - ‘amon.us.data’ saved [8143/8143]
+
+URL transformed to HTTPS due to an HSTS policy
+--2017-05-01 13:48:55--  https://data.giss.nasa.gov/gistemp/graphs_v3/Fig.A.txt
+Resolving data.giss.nasa.gov... 128.183.4.33
+Connecting to data.giss.nasa.gov|128.183.4.33|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3812 (3.7K) [text/plain]
+Saving to: ‘Fig.A.txt’
+
+Fig.A.txt           100%[=================>]   3.72K  --.-KB/s    in 0s
+
+2017-05-01 13:48:56 (15.9 MB/s) - ‘Fig.A.txt’ saved [3812/3812]
+
+--2017-05-01 13:48:56--  https://web.archive.org/web/20150703193312/http://data.giss.nasa.gov/gistemp/graphs_v3/Fig.A.txt
+Resolving web.archive.org... 8.7.198.45, 200:2:2e52:ae44::
+Connecting to web.archive.org|8.7.198.45|:443... ^C

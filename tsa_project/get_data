@@ -1,0 +1,41 @@
+wget http://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts+dSST.txt
+wget http://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts+dSST.txt
+wget http://data.giss.nasa.gov/gistemp/tabledata_v3/SH.Ts+dSST.txt
+wget http://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts.txt
+wget http://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts.txt
+wget http://data.giss.nasa.gov/gistemp/tabledata_v3/SH.Ts.txt
+
+wget http://web.archive.org/web/20150418174210/http://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts+dSST.txt -O GLB.Ts+dSST-old.txt
+wget https://web.archive.org/web/20150629220659/http://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts.txt -O GLB.Ts-old.txt
+wget http://web.archive.org/web/20150603121141/http://data.giss.nasa.gov/gistemp/tabledata_v3/NH.Ts.txt -O NH.Ts-old.txt
+wget http://web.archive.org/web/20150603121141/http://data.giss.nasa.gov/gistemp/tabledata_v3/SH.Ts.txt -O SH.Ts-old.txt
+
+wget http://web.archive.org/web/20141231085500/http://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts+dSST.txt -O GLB.Ts+dSST-old2.txt
+
+wget http://web.archive.org/web/20140805162437/http://data.giss.nasa.gov/gistemp/tabledata_v3/GLB.Ts+dSST.txt -O GLB.Ts+dSST-old3.txt
+
+wget http://www.esrl.noaa.gov/psd/enso/mei/table.html -O MEI.html
+
+wget http://www.sidc.be/silso/DATA/SN_m_tot_V2.0.txt
+
+wget http://lasp.colorado.edu/home/sorce/files/2011/09/TSI_TIM_Reconstruction.txt
+
+wget http://vortex.nsstc.uah.edu/data/msu/t2lt/uahncdc_lt_5.6.txt
+wget http://vortex.nsstc.uah.edu/data/msu/v6.0beta/tlt/oldversions/uahncdc_lt_6.0beta3.txt
+wget http://vortex.nsstc.uah.edu/data/msu/v6.0beta/tlt/uahncdc_lt_6.0beta4.txt
+
+wget http://www.esrl.noaa.gov/gmd/webdata/grad/mloapt/mlo_transmission.dat
+wget http://www.esrl.noaa.gov/gmd/webdata/grad/mloapt/mlo_transmission.gif
+
+wget ftp://aftp.cmdl.noaa.gov/data/trace_gases/co2/flask/surface/co2_brw_surface-flask_1_ccgg_month.txt
+wget ftp://aftp.cmdl.noaa.gov/data/trace_gases/co2/flask/surface/co2_mlo_surface-flask_1_ccgg_month.txt
+wget ftp://aftp.cmdl.noaa.gov/data/trace_gases/co2/flask/surface/co2_smo_surface-flask_1_ccgg_month.txt
+wget ftp://aftp.cmdl.noaa.gov/data/trace_gases/co2/flask/surface/co2_spo_surface-flask_1_ccgg_month.txt
+
+wget http://www.eea.europa.eu/data-and-maps/daviz/atmospheric-concentration-of-carbon-dioxide-1/download.csv -O co2-historical.csv
+
+wget http://www.esrl.noaa.gov/psd/data/correlation/amon.us.data
+
+wget http://data.giss.nasa.gov/gistemp/graphs_v3/Fig.A.txt
+
+wget https://web.archive.org/web/20150703193312/http://data.giss.nasa.gov/gistemp/graphs_v3/Fig.A.txt -O Fig.A-old.txt
