@@ -41,8 +41,9 @@ Right now the repo has the following structure:
 ├── proposal.pdf  
 ├── proposal.synctex.gz  
 └── proposal.tex  
-
-
+  
+Download data using the script 'get_data'.  
+(First `chmod 755 get_data`)
   
 Please also read the post here:  
 https://radfordneal.wordpress.com/2015/12/03/what-can-global-temperature-data-tell-us/
