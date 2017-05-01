@@ -44,5 +44,5 @@ Right now the repo has the following structure:
 
 
   
-
+Please also read the post here:  
 https://radfordneal.wordpress.com/2015/12/03/what-can-global-temperature-data-tell-us/

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.4.2)  1 MAY 2017 13:59
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.4.2)  1 MAY 2017 14:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1147,11 +1147,16 @@ File: pic1.png Graphic file (type QTm)
  <use  "pic1.png" > [1
 
 
-] [2] (./proposal.aux) ) 
+]
+Underfull \hbox (badness 10000) in paragraph at lines 42--46
+
+ []
+
+[2] (./proposal.aux) ) 
 Here is how much of TeX's memory you used:
  19147 strings out of 493591
  376539 string characters out of 6143547
- 378495 words of memory out of 5000000
+ 379495 words of memory out of 5000000
  22430 multiletter control sequences out of 15000+600000
  5496 words of font info for 44 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
