@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.4.2)  1 MAY 2017 13:52
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.4.2)  1 MAY 2017 13:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1124,32 +1124,4 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * Font 'FandolHei-Regular' does not contain script 'CJK'.
 *************************************************
 \g__fontspec_family_FandolHei-Regular_int=\count152
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'FandolHei-Regular(0)' created for font 'FandolHei-Regular' with
-. options [Script={CJK},Extension={.otf},BoldFont={FandolHei-Bold}].
-. 
-. This font family consists of the following NFSS series/shapes:
-. - 'normal' (m/n) with NFSS spec.: <->"[FandolHei-Regular.otf]/OT:"
-. - 'small caps'  (m/sc) with NFSS spec.: - 'bold' (bx/n) with NFSS spec.:
-. <->"[FandolHei-Bold.otf]/OT:"
-. - 'bold small caps'  (bx/sc) with NFSS spec.: 
-.................................................
-File: pic2.png Graphic file (type QTm)
-<use  "pic2.png" >
-File: pic1.png Graphic file (type QTm)
- <use  "pic1.png" > [1
-
-
-] [2] (./proposal.aux) ) 
-Here is how much of TeX's memory you used:
- 19124 strings out of 493591
- 374912 string characters out of 6143547
- 377495 words of memory out of 5000000
- 22408 multiletter control sequences out of 15000+600000
- 5488 words of font info for 43 fonts, out of 8000000 for 9000
- 1347 hyphenation exceptions out of 8191
- 48i,7n,74p,10348b,283s stack positions out of 5000i,500n,10000p,200000b,80000s
-
-Output written on proposal.pdf (2 pages).
+............
