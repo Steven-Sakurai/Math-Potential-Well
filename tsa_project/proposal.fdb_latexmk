@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1493732017 "proposal.tex" "proposal.pdf" "proposal" 1493732020
+["pdflatex"] 1493732311 "proposal.tex" "proposal.pdf" "proposal" 1493732313
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -29,6 +29,7 @@
   "/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty" 1459635588 82019 58dd7b022876c1d593cd2135c441946d ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty" 1459635588 4115 318a66090112f3aa3f415aeb6fe8540f ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty" 1456875012 2431 fe3078ec12fc30287f568596f8e0b948 ""
+  "/usr/local/texlive/2016/texmf-dist/tex/latex/base/article.cls" 1459635588 19821 310da678527a7dfe2a02c88af38079b7 ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/base/fontenc.sty" 1454284088 4572 634fcdf7e9df867d6d54f84638930408 ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/base/size11.clo" 1459635588 8308 f91506bb4df6d8527331f7bbeaf0e63c ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/enumitem/enumitem.sty" 1317339792 42666 6fa770e3485520a6a5f2ea7d259c8f8d ""
@@ -53,7 +54,6 @@
   "/usr/local/texlive/2016/texmf-dist/tex/latex/l3packages/xparse/xparse.sty" 1463608779 61846 f081f1a4b6b2ee9ccff101b890bd41dc ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.sty" 1463608779 50197 9cf68306271f9dce9636d967e845324e ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/metalogo/metalogo.sty" 1275236382 7002 8fdf43c505e48e13c2cea042a8a8671c ""
-  "/usr/local/texlive/2016/texmf-dist/tex/latex/paper/paper.cls" 1212517464 35575 92db53371de03f4dddf2c4fcd733083f ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/realscripts/realscripts.sty" 1455402752 4558 41199fa3acb4eb54622019e50ccfb65d ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/tipa/t3cmr.fd" 1137110956 1257 fd5b1c2f0106f9cf12cdb2ff961987c5 ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/tipa/t3enc.def" 1137110956 26483 c461a68c34040cb0d96c43e86c012a6d ""
@@ -68,8 +68,8 @@
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
   "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1479650374 3520377 6d9d7c4174b926bd307b5060c8b23095 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "proposal.aux" 1493732019 260 9db31a64f7bc0382e1b6d88669e805c4 ""
-  "proposal.tex" 1493732017 2070 f1777fa91b59f2121fcce612e661e900 ""
+  "proposal.aux" 1493732313 260 9db31a64f7bc0382e1b6d88669e805c4 ""
+  "proposal.tex" 1493732310 2193 60e6f020bab03e889dacccf34b578eb3 ""
   (generated)
   "proposal.aux"
   "proposal.pdf"
