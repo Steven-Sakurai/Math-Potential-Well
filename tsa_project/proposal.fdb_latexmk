@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1493733559 "proposal.tex" "proposal.pdf" "proposal" 1493733561
+["pdflatex"] 1493734834 "proposal.tex" "proposal.pdf" "proposal" 1493734836
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -66,9 +66,9 @@
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
   "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1479650374 3520377 6d9d7c4174b926bd307b5060c8b23095 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "proposal.aux" 1493733561 260 9db31a64f7bc0382e1b6d88669e805c4 ""
-  "proposal.tex" 1493733558 2568 69beecfc7ff97ed37916e90d62c5355e ""
+  "proposal.aux" 1493734836 261 d51fd3298e40688bf74f9395e158b881 ""
+  "proposal.tex" 1493734831 2579 1a3196d5226be68e7419f2a4b5004f71 ""
   (generated)
+  "proposal.aux"
   "proposal.pdf"
   "proposal.log"
-  "proposal.aux"
