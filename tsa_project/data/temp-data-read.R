@@ -1,6 +1,3 @@
-# Read global, NH, SH GISS temperature data.
-#
-# Written by Radford Neal, 2015.
 
 library(zoo)  # for na.approx
 
@@ -27,9 +24,6 @@ GISS_NH_Land <- GISS_read("data/NH.Ts.txt")
 GISS_SH_Land <- GISS_read("data/SH.Ts.txt")
 
 GISS_GLB_old <- GISS_read("data/GLB.Ts+dSST-old.txt")
-
-# GISS_NH_old <- GISS_read("data/NH.Ts+dSST-old.txt")  # unavailable
-# GISS_SH_old <- GISS_read("data/SH.Ts+dSST-old.txt")  # unavailable
 
 GISS_GLB_Land_old <- GISS_read("data/GLB.Ts-old.txt")
 
