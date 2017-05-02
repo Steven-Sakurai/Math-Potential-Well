@@ -12,7 +12,7 @@
 \maketitle
 
 \section{Experimental Facts}
-\subsection{The Stern-Gerlach Experiment 1921~1922}
+\subsection{The Stern-Gerlach Experiment $1921 \sim 1922$}
 For a heavy atom as a whole, magnetic moment $\mu$ is proportional to the electron spin $\overrightarrow{S}$, i.e. 
 $\overrightarrow{\mu} = \frac{e\overrightarrow{S}}{m_e c}$. Place a magnetic field $\overrightarrow{B}$, the interaction energy yields $ - \overrightarrow{\mu} \cdot \overrightarrow{B}$. Therefore, if $B_z$ is not homogeneous, then $F_z = \mu_z \partial_z B_z$.\\
 \indent We have a beam of silver atoms(47 electrons in total, with 46 of them having spherical symmetry, no net angular momentum, therefore the atom's angular momentum is sorely decided by the $47th$ electron), going through a $\overrightarrow{B}$ inhomogeneous in $B_z$. Then atoms will split in $z$ direction according to their spin. We only observe two distinct component on the other side, where $S_z = \pm \frac{\hbar}{2}$.\\
@@ -76,8 +76,12 @@ Bra Space is dual to Ket Space. Corresponding to every $\ket{\alpha}$ in $\mathc
 \indent Now we know a bra $\bra{\eta}$ acts on a ket $\ket{f}$ yields the $(g_{\eta}, f)$, which is called the inner product of $\bra{\eta}$ and $\ket{f}$ in physics, when mathematically this is inacurate.\\
 \indent In physics, we often put a complex vector in $\mathcal{H}$ into a bra, ex. $\bra{\alpha}$, which actually means that $\bra{\alpha} = v^{-1}(\ket{\alpha})$. Though very confusing, we only need to remember finally $\bra{\eta}$ acts on $\ket{f}$ yields $(\ket{\eta}, \ket{f})$.
 
-
-
+\subsubsection{Hermitian}
+An observable's expectation value w.r.t. state $\ket{\Psi}$ is defined as:
+\begin{equation}
+	\braket{Q}_{\Psi} = \int\Psi^* \widehat{Q} \Psi dx = \braket{\Psi|\widehat{Q} \Psi}
+\end{equation}
+\indent An observable should be real. Therefore, the observable is represented by a Hermitian operator.
 
 
 

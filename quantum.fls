@@ -2,8 +2,8 @@ PWD /Users/steven/GIT/maths
 INPUT /usr/local/texlive/2016/texmf.cnf
 INPUT /usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt
-INPUT quantum.tex
-OUTPUT quantum.log
+INPUT Quantum.tex
+OUTPUT Quantum.log
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/size11.clo
@@ -30,9 +30,9 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/braket/braket.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/braket/braket.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/tools/indentfirst.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/tools/indentfirst.sty
-INPUT quantum.aux
-INPUT quantum.aux
-OUTPUT quantum.aux
+INPUT Quantum.aux
+INPUT Quantum.aux
+OUTPUT Quantum.aux
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
@@ -66,4 +66,4 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
-INPUT quantum.aux
+INPUT Quantum.aux

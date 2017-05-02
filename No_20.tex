@@ -5,7 +5,8 @@
 \usepackage{indentfirst}
 \usepackage{geometry} 
 \usepackage{enumitem} 
-\usepackage{amsmath}      
+\usepackage{amsmath}  
+\usepackage{braket}    
 \usepackage{fontspec,xltxtra,xunicode}  
 
 \usepackage[]{xeCJK}
@@ -46,4 +47,15 @@ Change variable $s = e^x$, we have $c_x = e^{-x}c_s$.\\
 $c_t = rc - rsc_s - \frac{1}{2}\sigma^2 s^2 c_{ss} = (r - (r - \frac{1}{2}\sigma^2)\frac{\partial}{\partial x} - \frac{1}{2}\sigma^2 \frac{\partial^2}{\partial x^2}) c$.\\
 \indent Therefore $H_{BS} = (1 - \frac{\partial}{\partial x})(r + \frac{1}{2} \sigma^2 \frac{\partial}{\partial x})$. 
 
+
+\section{Notes}
+Consider an electron which can only stays on a lattice if discrete points: $x = na$. The eigenvects should be: \\
+$\ket{n} = \begin{bmatrix}
+				... \\
+				0 \\
+				1 \\
+				0 \\
+				...
+			\end{bmatrix}$
+\\ Then $\braket{m|n} = \delta_{n,m}$
 \end{document}

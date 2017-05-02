@@ -1,9 +1,9 @@
-PWD /Users/steven/GIT/maths/tsa_project
+PWD /Users/steven/GIT/maths
 INPUT /usr/local/texlive/2016/texmf.cnf
 INPUT /usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt
-INPUT proposal.tex
-OUTPUT proposal.log
+INPUT No_20.tex
+OUTPUT No_20.log
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/paper/paper.cls
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/paper/paper.cls
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/base/size11.clo
@@ -36,6 +36,8 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/braket/braket.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/braket/braket.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/fontspec/fontspec.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/fontspec/fontspec.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/l3kernel/expl3.sty
@@ -101,9 +103,9 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/xelatex/xecjk/xunicode-extra.def
 INPUT /usr/local/texlive/2016/texmf-dist/tex/xelatex/xecjk/xunicode-extra.def
 INPUT /usr/local/texlive/2016/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg
 INPUT /usr/local/texlive/2016/texmf-dist/tex/xelatex/xecjk/xeCJK.cfg
-INPUT proposal.aux
-INPUT proposal.aux
-OUTPUT proposal.aux
+INPUT No_20.aux
+INPUT No_20.aux
+OUTPUT No_20.aux
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/tipa/t3cmr.fd
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/tipa/t3cmr.fd
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
@@ -122,4 +124,4 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
-INPUT proposal.aux
+INPUT No_20.aux

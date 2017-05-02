@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1493567924 "quantum.tex" "quantum.pdf" "quantum" 1493567925
+["pdflatex"] 1493726767 "Quantum.tex" "Quantum.pdf" "Quantum" 1493726768
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -37,11 +37,14 @@
   "/usr/local/texlive/2016/texmf-dist/tex/latex/braket/braket.sty" 1266794558 3601 193635d942bc4777a5acaaeeffdce692 ""
   "/usr/local/texlive/2016/texmf-dist/tex/latex/tools/indentfirst.sty" 1454284088 1617 820bc46185ca5aeeda2ecc6c21866b18 ""
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
-  "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1491066287 3520380 af1115bab081669c6ed59096b390c1b5 ""
+  "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1479650374 3520377 6d9d7c4174b926bd307b5060c8b23095 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "quantum.aux" 1493567924 913 9c049579358cd8df4e7abc2052ab86eb ""
-  "quantum.tex" 1493567923 6600 4471dee7e672aacec98b620f87f7ec83 ""
+  "Quantum.aux" 1493726767 985 2698da45cd3a9a8838b429270a821c00 ""
+  "Quantum.tex" 1493726765 6927 6c703263f22abf5ed75a0c915ff2c847 ""
   (generated)
-  "quantum.aux"
+  "Quantum.pdf"
+  "Quantum.aux"
   "quantum.pdf"
+  "quantum.aux"
+  "Quantum.log"
   "quantum.log"
