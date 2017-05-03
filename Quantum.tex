@@ -1,4 +1,5 @@
 \documentclass[a4paper, 11pt]{article}
+\usepackage[top=1.0in, bottom=1.0in, left=1.2in, right=1.2in]{geometry} 
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -26,7 +27,7 @@ $Oven \Longrightarrow SG\hat{z}$ (filtering $S_z -$) $\Longrightarrow SG\hat{z} 
 $\Longrightarrow x-filter \Longrightarrow  x^{\prime}-filter \Longrightarrow y-filter \Longrightarrow$ $x_+, x_-$ \\
 \indent The experiment suggests that we cannot determine $S_z$ and $S_z$ simultaneously. Previous information is destroyed by the new apparatus. It also suggests the superposition principle.\\
 \indent Further we can use abstact vectors to represent the states in SG experiment on the basis of $\ket{S_z +}$ and $\ket{S_z -}$.
-\newpage
+
 
 \begin{subequations}
 $\ket{S_x}, \ket{S_y}, \ket{S_z}$'s relations:
@@ -118,7 +119,32 @@ Then the general uncertainty relation follows from Schwarz inequality:
 \braket{(\widehat{A})^2} \braket{(\widehat{B})^2} \geq \frac{1}{4} |\braket{[\widehat{A}, \widehat{B}]]}|^2
 \end{equation}
 
-
+\subsubsection{Translation and Momentum}
+Define \textbf{infinitesimal translation operator} $\mathcal{T}(dx')\ket{x'} = \ket{x' + dx'}$, where the $x'$ is $3-dim$ by convention.\\
+\indent Expand arbitratry state $\ket{\alpha}$ to examine the effect of $\mathcal{T}(dx')$:
+\begin{equation}
+\mathcal{T}(dx')\ket{\alpha} = \int d^3x'\ket{x'+dx'}\braket{x'|\alpha} = \int d^3x'\ket{x'}\braket{x'-dx'|\alpha}
+\end{equation}
+\indent If we take $\mathcal{T}(dx') =  1 - i K \cdot dx'$, where $K$'s component $K_x, K_y, K_z$ are all hermitians. Then $\mathcal{T}(dx')$ has the following properties:
+\begin{enumerate}
+	\item $\mathcal{T}(dx') \mathcal{T}(dx')^{\dag} = 1$
+	\item $\mathcal{T}(dx')\mathcal{T}(dx'') = \mathcal{T}(dx'+dx'')$
+	\item $\mathcal{T}(- dx')\mathcal{T}(dx') = 1$
+	\item $lim_{dx' \rightarrow 0} \mathcal{T}(dx') = 1$
+\end{enumerate}
+\indent We can also derive the following relation: 
+\begin{enumerate}
+	\item $[x, \mathcal{T}(dx')] = dx'$ 
+	\item $[x_i, K_j] = i \delta_{ij} $
+\end{enumerate}
+\indent Dirac:"Momentum is the generator of an infinitesimal translation."\\
+\indent From the generating function of an infinitesimal translation $F_2(x, P) = x \cdot P + p \cdot dx$, we have \\
+\indent $X = \partial_{p}F_2 = x +  dx,\quad p = \partial_x F_2 = P$\\
+\indent We find that $K = \frac{p}{\hbar}$, i.e. $\frac{2\pi}{\lambda} = \frac{p}{\hbar}$. Therefore, we obtain the final expression for infinitesimal translation operator with exact physical meaning:
+\begin{equation}
+\mathcal{T}(dx') = 1 - \frac{i}{\hbar}p\cdot dx'
+\end{equation}
+The commutation relation now becomes $[x_i, p_j] = i\hbar \delta{ij}$, together with $[x_i, x_j] = 0, [p_i, p_j] = 0$.
 
 \section{Schrodinger's Equation}
 Define 
