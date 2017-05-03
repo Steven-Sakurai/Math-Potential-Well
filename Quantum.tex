@@ -76,20 +76,76 @@ Bra Space is dual to Ket Space. Corresponding to every $\ket{\alpha}$ in $\mathc
 \indent Now we know a bra $\bra{\eta}$ acts on a ket $\ket{f}$ yields the $(g_{\eta}, f)$, which is called the inner product of $\bra{\eta}$ and $\ket{f}$ in physics, when mathematically this is inacurate.\\
 \indent In physics, we often put a complex vector in $\mathcal{H}$ into a bra, ex. $\bra{\alpha}$, which actually means that $\bra{\alpha} = v^{-1}(\ket{\alpha})$. Though very confusing, we only need to remember finally $\bra{\eta}$ acts on $\ket{f}$ yields $(\ket{\eta}, \ket{f})$.
 
-\subsubsection{Hermitian}
-An observable's expectation value w.r.t. state $\ket{\Psi}$ is defined as:
+\subsubsection{Probability \& Measurement}
+Dirac:"A measurement always cause the system jump into an eigenstate of the dynamical variable that is being measured."\\
 \begin{equation}
-	\braket{Q}_{\Psi} = \int\Psi^* \widehat{Q} \Psi dx = \braket{\Psi|\widehat{Q} \Psi}
+ \ket{\alpha} = \sum_{a'}c_{a'}\ket{\alpha'} = \sum_{a'}\ket{\alpha'}\braket{\alpha'|\alpha}
 \end{equation}
-\indent An observable should be real. Therefore, the observable is represented by a Hermitian operator.
+
+\indent \textbf{Postulate} the probability for the system to jump from $\ket{\alpha}$ to $\ket{\alpha'}$ after measurement of $\widehat{A}$ to be $|\braket{\alpha'|\alpha}|^2$. \\
+
+\indent An observable's expectation value w.r.t. state $\ket{\Psi}$ is defined as:
+\begin{equation}
+	\braket{\widehat{A}} = \sum_{a'}\sum_{a''}\braket{\alpha|\alpha''}\braket{\alpha''|\widehat{A}|\alpha'}\braket{\alpha'|\alpha} = \sum_{a'}a'|\braket{\alpha'|\alpha}|^2
+\end{equation}
+Continuous Version:
+\begin{equation}
+	\braket{Q}_{\Psi} = \int\Psi^* \widehat{Q} \Psi dx = \braket{\Psi|\widehat{Q}|\Psi}
+\end{equation}
+\indent A selective measurement amounts to the projection operator defined as:
+\begin{equation}
+\Lambda_{a'}\ket{\alpha} = \ket{\alpha'}\braket{\alpha'|\alpha}
+\end{equation}
+
+\subsubsection{Compatible Observables}
+Observables $\widehat{A}$ and $\widehat{B}$ are defined to be compatible when
+\begin{equation}
+	[\widehat{A}, \widehat{B}] = 0
+\end{equation}
+Then there exists a set of simultaneous eigenkets of $\widehat{A}, \widehat{B}$: $\ket{K'} = \ket{a', b'}$ . \\
+\indent If $\widehat{A}, \widehat{B}, \widehat{C}$ are incompatible, consider a sequence of selective measurements. The result coming out of the C filter depends on whether or not B measurements have actually been carried out, i.e.
+\begin{equation}
+\sum_{b'}|\braket{c'|b'}|^2 |\braket{b'|a'}|^2 \neq |\braket{c'|a'}|^2
+\end{equation}
+
+\subsubsection{The Uncertainty Relation}
+Define an operator:
+\begin{equation}
+\Delta \widehat{A} = \widehat{A} - \braket{\widehat{A}}
+\end{equation}
+Then the general uncertainty relation follows from Schwarz inequality:
+\begin{equation}
+\braket{(\widehat{A})^2} \braket{(\widehat{B})^2} \geq \frac{1}{4} |\braket{[\widehat{A}, \widehat{B}]]}|^2
+\end{equation}
 
 
 
+\section{Schrodinger's Equation}
+Define 
+\begin{equation}
+\widehat{H} = - \frac{\hbar}{2 m} \frac{\partial^2}{\partial x^2} + \widehat{V}
+\end{equation}
+\begin{equation}
+i \hbar \frac{\partial \Psi}{\partial t} = \widehat{H}\Psi
+\end{equation}
+\begin{subequations}
+By separation of variable, $\psi(x, t) = \psi(x)\varphi(t)$, we obtain:
+\begin{align}
+\frac{d\varphi(t)}{dt} &= - \frac{i E}{\hbar}\varphi \\
+\widehat{H}\psi &= E\psi 
+\end{align}
+\end{subequations}
 
-
-
-
-
+which yields:
+\begin{subequations}
+time-independent solution $\Psi(t, x) = \psi(x) e^{- \frac{i E t}{\hbar}}$:
+\begin{align}
+|\Psi(x, t)|^2 &= |\psi(x)|^2 \\
+\braket{\widehat{H}} &= \int{\psi^* \widehat{H} \psi dx} = E \int{|\Psi|^2 dx} = E \\
+\braket{\widehat{H}^2} &= E^2 \\
+\sigma^2_{H} &= 0 
+\end{align}
+\end{subequations}
 
 
 \end{document}
