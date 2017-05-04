@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.11.20)  4 MAY 2017 15:06
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.11.20)  4 MAY 2017 16:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -208,17 +208,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--54
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 81--82
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
 
  []
 
 [3]
-Overfull \hbox (3.48352pt too wide) in paragraph at lines 146--148
+Overfull \hbox (3.48352pt too wide) in paragraph at lines 148--150
 \OT1/cmr/m/n/10.95 The com-mu-ta-tion re-la-tion now be-comes $[\OML/cmm/m/it/1
 0.95 x[]; p[]\OT1/cmr/m/n/10.95 ] = \OML/cmm/m/it/10.95 i\U/msb/m/n/10.95 ~\OML
 /cmm/m/it/10.95 ^^N[]$\OT1/cmr/m/n/10.95 , to-gether with $[\OML/cmm/m/it/10.95

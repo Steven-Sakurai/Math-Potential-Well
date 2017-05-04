@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1493881607 "Quantum.tex" "Quantum.pdf" "Quantum" 1493881608
+["pdflatex"] 1493887923 "Quantum.tex" "Quantum.pdf" "Quantum" 1493887924
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -44,12 +44,12 @@
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
   "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1479650374 3520377 6d9d7c4174b926bd307b5060c8b23095 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "Quantum.aux" 1493881608 1442 c598a93e667c3cd589c1cf2ff00bf11f ""
-  "Quantum.tex" 1493881607 11635 b564f0064f00f40efe5fda51ca4709bd ""
+  "Quantum.aux" 1493887923 1542 52d7bef04764e512b98d3792269a8a0a ""
+  "Quantum.tex" 1493887922 11769 5ad1648c59e6f0b78363a6de63a0d841 ""
   (generated)
-  "Quantum.aux"
+  "quantum.aux"
+  "quantum.log"
   "Quantum.pdf"
+  "Quantum.aux"
   "quantum.pdf"
   "Quantum.log"
-  "quantum.log"
-  "quantum.aux"
