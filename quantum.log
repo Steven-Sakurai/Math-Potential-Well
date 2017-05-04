@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.11.20)  4 MAY 2017 00:39
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.11.20)  4 MAY 2017 15:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -226,14 +226,14 @@ Overfull \hbox (3.48352pt too wide) in paragraph at lines 146--148
 /cmm/m/it/10.95 p[]; p[]\OT1/cmr/m/n/10.95 ] =
  []
 
-[4] (./Quantum.aux) ) 
+[4] [5] (./Quantum.aux) ) 
 Here is how much of TeX's memory you used:
  1747 strings out of 493591
  21812 string characters out of 6143545
- 88442 words of memory out of 5000000
+ 89442 words of memory out of 5000000
  5165 multiletter control sequences out of 15000+600000
  11659 words of font info for 44 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
  27i,15n,26p,444b,197s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Quantum.pdf (4 pages).
+Output written on Quantum.pdf (5 pages).
