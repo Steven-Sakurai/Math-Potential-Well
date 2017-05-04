@@ -1,7 +1,9 @@
-\documentclass[a4paper, 12pt]{article}
+\documentclass[a4paper, 11pt]{article}
 \usepackage{indentfirst}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{bbm}
+\usepackage[]{braket}
 \title{\textbf{Stochastic Analysis}}
 \author{Steven Shen}
 \begin{document}
@@ -20,8 +22,10 @@ A non-decreasing family $\{ \mathcal{F}_t; t \geq 0 \}$ of $sub-\sigma-field$ of
 $\mathbb{E}[X|\mathcal{G}]$ is the unique random variable that satisfies:
 \begin{enumerate}
 	\item $\mathbb{E}[X|\mathcal{G}]$ is $\mathcal{G}-measurable$
-	\item $\int_A \mathbb{E}[X|\mathcal{G}](w) d\mathbb{P}(w) = \int_A X(w) d\mathbb{P}(w)$, for all $A \in \mathcal{G}$
+	\item $\int_A \mathbb{E}[X|\mathcal{G}](w) d\mathbb{P}(w) = \int_A X(w) d\mathbb{P}(w)$, for all $A \in \mathcal{G}$ \\
+	(alternative expression: $\forall A \in \mathcal{G}, \mathbb{E}[\mathbb{E}[\mathbbm{1}_{A}X|\mathcal{G}]] = \mathbb{E}[\mathbbm{1}_{A}X]$)
 \end{enumerate}
+\indent $P.S.$: a very useful thing to remember: $\mathbb{P}(A) = \mathbb{E}\mathbbm{1}_{A}$.
 
 \subsection{Stopping Times}
 Consider a measurable space $(\Omega, \mathcal{F})$ equipped with a filtration $\{ \mathcal{F}_t \}$. A random time $T$ is a stopping time w.r.t. that filtration, if the event $\{ T \leq t \}$ belongs to $\mathcal{F}_t$, $\forall t \geq 0$. \\
@@ -35,6 +39,24 @@ Consider a measurable space $(\Omega, \mathcal{F})$ equipped with a filtration $
 \subsection{Construction}
 
 \subsection{Levy Theorem}
+Let $M(t), t \geq 0$, be a martingale w.r.t. $\mathcal{F}(t)$. We have $M(0) = 0$, $M(t)$ has continuous sample paths, $\braket{M, M}(t) = t, \forall t \geq 0$.\\ 
+$\Longrightarrow M(t)$ is a Brownian motion. \\
+\\
+\textit{Sketch of Proof:}\\
+\\ For any function $f(t, x)$, we have:
+\begin{equation}
+f(t, M(t)) = f_0 + \int_0^t[f_{t} + \frac{1}{2}f_{xx}]ds + \int_0^t f_x dM(s)
+\end{equation}
+where we've used $\braket{M, M}(t) =t \rightarrow dM(t)dM(t) = dt$. Taking expectation on both sides, due to the martingale property of $M(t)$, the expectation of the integral w.r.t. $dM(t)$ disappears. Due to the arbitrarity of $f(t, x)$, we can select $f(t, x) = e^{ux - \frac{1}{2}u^2t}$. Thus we obtain:
+\begin{subequations}
+\begin{align}
+f_t + \frac{1}{2}f_{xx} &= 0, \\
+\mathbb{E}exp\{uM(t) - \frac{1}{2}u^2 t\} &= e^{0 - 0} = 1, \\
+\Longrightarrow \mathbb{E}e^{uM(t)} &= e^{\frac{1}{2}u^2 t}
+\end{align}
+\end{subequations}
+\indent We believe two $R.V.$ who have the same moment fenerating function should have the same distribution. Therefore we prove the normality of $M(t)$.
+
 
 \subsection{First Passage Time}
 
@@ -69,8 +91,35 @@ We have $(\Omega, \mathcal{F}, \mathbb{P})$ and $filtration$ $\mathcal{F}(t)$ de
 \end{enumerate}
 
 \subsection{Girsanov Theorem, one dimension}
+We have $W(t), 0\leq t \leq T$ on $(\Omega, \mathcal{F}, \mathbb{P})$, and let $\mathcal{F}(t), 0 \leq t \leq T$ be the filtration for $W(t)$ and $\Theta(t)$ be an adapted process to it. Define
+\begin{subequations}
+\begin{align}
+Z(t) &= exp{-\int_0^t\Theta(u)dW(u) - \frac{1}{2}\int_0^t\Theta^2(u) du}, \\
+\widetilde{W(t)} &= W(t) + \int_0^t\Theta(u)du, \\
+assume &\quad \mathbb{E}\int_0^T \Theta^2(u)Z^2(u)du < \infty
+\end{align}
+\end{subequations}
+Set $Z = Z(T)$, it follows:
+\begin{equation}
+\mathbb{E}Z = 1 
+\end{equation}
+Define  a new probability measure by:
+\begin{equation}
+d\widetilde{\mathbb{P}} = Zd\mathbb{P}
+\end{equation}
+Then under $\widetilde{\mathbb{P}}$ measure, $\widetilde{W(t)}$ is a Brownian motion.
 
 \subsection{Martingale Representation Theorem, one dimension}
+We have $W(t), 0\leq t \leq T$ on $(\Omega, \mathcal{F}, \mathbb{P})$, and let $\mathcal{F}(t), 0 \leq t \leq T$ be the filtration for $W(t)$. Let $M(t)$ be a martingale w.r.t. $\mathcal{F}(t)$. 
+$\Longrightarrow \exists$ an $\mathcal{F}(t)$ adapted process $\Gamma(u), 0 \leq u \leq T$, such that:
+\begin{equation}
+M(t) = M(0) + \int_0^t \Gamma(u)dW(u), 0 \leq t \leq T.
+\end{equation}
+\indent Using the Martingale Representation Theorem \& Girsanov Theorem, it can be proved that: \\
+\indent Let $M(t)$ be a martingale under $\widetilde{\mathbb{P}}$. Then there exists an adapted process $\widetilde{\Gamma(u)}$ w.r.t $\mathcal{F}(t)$, such that:
+\begin{equation}
+\widetilde{M(t)} = \widetilde{M(0)} + \int_0^t \widetilde{\Gamma(u)} \widetilde{dW(u)}, 0 \leq t \leq T.
+\end{equation}
 
 \subsection{Application of Risk-Neutral}
 
@@ -83,8 +132,15 @@ We have $(\Omega, \mathcal{F}, \mathbb{P})$ and $filtration$ $\mathcal{F}(t)$ de
 \subsection{Transitional Density}
 
 \subsection{Kolmogorov Backward \& Forward Equation}
-$Shreve$ $P_{291}$
-
+$Shreve$ $P_{291}$\\
+\begin{subequations}
+Let $\mathcal{A}_t = \beta(t, x)\frac{\partial}{\partial x} + \frac{1}{2} \gamma^2(t, x) \frac{\partial^2}{\partial x^2}$, $\mathcal{A}_t^{\dag} = \beta(t, x)\frac{\partial}{\partial x} - \frac{1}{2} \gamma^2(t, x) \frac{\partial^2}{\partial x^2}$.\\(Note that $t \sim x, T \sim y$) \\
+Let the transitional density be $p(t, T, x, y)$.
+\begin{align}
+(\frac{\partial}{\partial t} + \mathcal{A}_t)p(t, T, x, y) &= 0 \\
+(\frac{\partial}{\partial T} - \mathcal{A}_T^{\dag})p(t, T, x, y) &= 0
+\end{align}
+\end{subequations}
 \subsection{Volatility Smile \& Surface}
 
 \section{Excellent Exercise on Courseware}
