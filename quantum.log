@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.11.20)  4 MAY 2017 16:52
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.11.20)  5 MAY 2017 19:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -208,17 +208,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--54
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 83--84
+Underfull \hbox (badness 10000) in paragraph at lines 103--104
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
 
  []
 
 [3]
-Overfull \hbox (3.48352pt too wide) in paragraph at lines 148--150
+Overfull \hbox (3.48352pt too wide) in paragraph at lines 168--170
 \OT1/cmr/m/n/10.95 The com-mu-ta-tion re-la-tion now be-comes $[\OML/cmm/m/it/1
 0.95 x[]; p[]\OT1/cmr/m/n/10.95 ] = \OML/cmm/m/it/10.95 i\U/msb/m/n/10.95 ~\OML
 /cmm/m/it/10.95 ^^N[]$\OT1/cmr/m/n/10.95 , to-gether with $[\OML/cmm/m/it/10.95
@@ -228,11 +228,11 @@ Overfull \hbox (3.48352pt too wide) in paragraph at lines 148--150
 
 [4] [5] (./Quantum.aux) ) 
 Here is how much of TeX's memory you used:
- 1747 strings out of 493591
- 21812 string characters out of 6143545
- 89442 words of memory out of 5000000
- 5165 multiletter control sequences out of 15000+600000
- 11659 words of font info for 44 fonts, out of 8000000 for 9000
+ 1749 strings out of 493591
+ 21836 string characters out of 6143545
+ 88442 words of memory out of 5000000
+ 5166 multiletter control sequences out of 15000+600000
+ 12005 words of font info for 45 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
  27i,15n,26p,444b,197s stack positions out of 5000i,500n,10000p,200000b,80000s
 

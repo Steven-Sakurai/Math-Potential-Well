@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1493887923 "Quantum.tex" "Quantum.pdf" "Quantum" 1493887924
+["pdflatex"] 1493983530 "Quantum.tex" "Quantum.pdf" "Quantum" 1493983531
   "/usr/local/texlive/2016/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -22,6 +22,7 @@
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
+  "/usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmti10.tfm" 1136768653 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
   "/usr/local/texlive/2016/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty" 1463348357 1226 01a89dfef361f60ae7df13cd2946bc16 ""
   "/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifvtex.sty" 1463608860 6797 90b7f83b0ad46826bc16058b1e3d48df ""
@@ -44,12 +45,12 @@
   "/usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf" 1463093894 31953 b9489e6e586f798610c60aec1f5ec548 ""
   "/usr/local/texlive/2016/texmf-var/web2c/xetex/xelatex.fmt" 1479650374 3520377 6d9d7c4174b926bd307b5060c8b23095 ""
   "/usr/local/texlive/2016/texmf.cnf" 1463979140 577 2938757e76f31531e65cc647e3507693 ""
-  "Quantum.aux" 1493887923 1542 52d7bef04764e512b98d3792269a8a0a ""
-  "Quantum.tex" 1493887922 11769 5ad1648c59e6f0b78363a6de63a0d841 ""
+  "Quantum.aux" 1493983530 1720 2c08a5b4a71c6699361d604f34603c25 ""
+  "Quantum.tex" 1493983529 13543 2391e181d34a256a167463cc039be53b ""
   (generated)
-  "quantum.aux"
-  "quantum.log"
-  "Quantum.pdf"
-  "Quantum.aux"
   "quantum.pdf"
   "Quantum.log"
+  "quantum.log"
+  "quantum.aux"
+  "Quantum.aux"
+  "Quantum.pdf"

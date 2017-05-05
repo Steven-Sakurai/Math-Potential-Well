@@ -76,10 +76,30 @@ Bra Space is dual to Ket Space. Corresponding to every $\ket{\alpha}$ in $\mathc
 (Right now I can only understand dual space this way, remained to be uncovered.)\\
 \indent Now we know a bra $\bra{\eta}$ acts on a ket $\ket{f}$ yields the $(g_{\eta}, f)$, which is called the inner product of $\bra{\eta}$ and $\ket{f}$ in physics, when mathematically this is inacurate.\\
 \indent In physics, we often put a complex vector in $\mathcal{H}$ into a bra, ex. $\bra{\alpha}$, which actually means that $\bra{\alpha} = v^{-1}(\ket{\alpha})$. Though very confusing, we only need to remember finally $\bra{\eta}$ acts on $\ket{f}$ yields $(\ket{\eta}, \ket{f})$.
+
+\subsubsection{More Notes about Vector Space}
+Suppose we take $\mathcal{F}$ the subspace of \textit{Hilbert Space} that we concern. \\
+Discrete orthonormal basis $\{u_i(r)\}$:
+ \begin{enumerate}
+ \item orthonormalization relation: $\braket{u_i|u_j} = \delta_{ij}$ $\Longrightarrow$ normalized and orthogonal
+ \item closure relation: $\sum_{i}u_i(r)u_i^*(r') = \delta(r - r')$ $\Longrightarrow$ constitute a basis
+ \end{enumerate}
+Basis outside $\mathcal{F}$: \\
+\indent Consider $v_p(x) = \frac{1}{\sqrt{2\pi \hbar}} e^{ipx/\hbar}$. It is not integrable on $(-\infty, \infty)$. We label members of set $\{v_p(x)\}$ by the continuous index $p$. So for any state $\ket{\psi}$, $\{v_p(x)\}$ is a set of eigenfunctions for basis $\{\ket{x}\}$. We have:
+\begin{equation}
+\braket{x|\psi} = \psi(x) = \int_{-\infty}^{\infty}dp \widetilde{\psi(p)} v_p(x)
+\end{equation}
+\indent Obviously here $\widetilde{\psi(p)} = \braket{v_p|\psi}$, which is exactly the fourier transform of $\psi(x)$, i.e. $\widetilde{\psi(p)} = \int_{-\infty}^{\infty}dx v_p^*(x) \psi(x)$. The fourier frequency spectra is equivalent to the projector operator on $\ket{x_i}$ in discrete case.\\
+\indent In a continuous case, the two relations become:
+\begin{enumerate}
+\item orthonormalization relation: $\braket{v_{p}|v_{p'}} = \int_{-\infty}^{\infty}dx v_{p'}(x')v_p^*(x) = \delta(p - p')$
+\item closure relation: $\int_{-\infty}^{\infty} dp v_p(x)v^*_{p}(x') = \delta(x - x')$
+\end{enumerate}
+
 \subsubsection{Riesz representation theorem}
 $\varphi_y(x) = \braket{x|y}$, when often $\varphi_y(x)$ is simply denoted as $y(x)$.
 
-\subsubsection{Probability \& Measurement}
+\subsection{Probability \& Measurement}
 Dirac:"A measurement always cause the system jump into an eigenstate of the dynamical variable that is being measured."\\
 \begin{equation}
  \ket{\alpha} = \sum_{a'}c_{a'}\ket{\alpha'} = \sum_{a'}\ket{\alpha'}\braket{\alpha'|\alpha}
@@ -147,6 +167,15 @@ Define \textbf{infinitesimal translation operator} $\mathcal{T}(dx')\ket{x'} = \
 \mathcal{T}(dx') = 1 - \frac{i}{\hbar}p\cdot dx'
 \end{equation}
 The commutation relation now becomes $[x_i, p_j] = i\hbar \delta{ij}$, together with $[x_i, x_j] = 0, [p_i, p_j] = 0$.
+
+\subsubsection{Propagator}
+Define the propagator $\widehat{U(t)}$ for state vector $\ket{\psi(t)}$ to be the operator such that:
+\begin{equation}
+\ket{\psi(t)} = \widehat{U(t)}\ket{\psi(0)}
+\end{equation}
+\indent Intuitively, propagator is the coefficient matrix to express $\psi(t)$ in terms of eigenfunctions.
+
+
 
 \section{Schrodinger's Equation}
 Define 
