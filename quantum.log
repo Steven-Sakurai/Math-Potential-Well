@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.11.20)  5 MAY 2017 19:25
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2016.11.20)  6 MAY 2017 00:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -226,7 +226,15 @@ Overfull \hbox (3.48352pt too wide) in paragraph at lines 168--170
 /cmm/m/it/10.95 p[]; p[]\OT1/cmr/m/n/10.95 ] =
  []
 
-[4] [5] (./Quantum.aux) ) 
+[4]
+Overfull \hbox (0.28526pt too wide) in paragraph at lines 178--179
+[]\OT1/cmr/m/n/10.95 Define the prop-a-ga-tor $\OML/cmm/m/it/10.95 K\OT1/cmr/m/
+n/10.95 (\OML/cmm/m/it/10.95 x[]; t\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 x[]
+; t[]\OT1/cmr/m/n/10.95 )$ such that $\OML/cmm/m/it/10.95  \OT1/cmr/m/n/10.95 (
+\OML/cmm/m/it/10.95 x[]; t\OT1/cmr/m/n/10.95 ) = [] []$,
+ []
+
+[5] (./Quantum.aux) ) 
 Here is how much of TeX's memory you used:
  1749 strings out of 493591
  21836 string characters out of 6143545

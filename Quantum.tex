@@ -168,12 +168,17 @@ Define \textbf{infinitesimal translation operator} $\mathcal{T}(dx')\ket{x'} = \
 \end{equation}
 The commutation relation now becomes $[x_i, p_j] = i\hbar \delta{ij}$, together with $[x_i, x_j] = 0, [p_i, p_j] = 0$.
 
-\subsubsection{Propagator}
-Define the propagator $\widehat{U(t)}$ for state vector $\ket{\psi(t)}$ to be the operator such that:
+\section{Time Evolution}
+Define the time-evolution operator $\widehat{U(t)}$ for state vector $\ket{\psi(t)}$ to be the operator such that:
 \begin{equation}
 \ket{\psi(t)} = \widehat{U(t)}\ket{\psi(0)}
 \end{equation}
-\indent Intuitively, propagator is the coefficient matrix to express $\psi(t)$ in terms of eigenfunctions.
+\indent Intuitively, time-evolution operator is the coefficient matrix to express $\psi(t)$ in terms of eigenfunctions.\par
+
+Define the propagator $K(x'', t; x', t_0)$ such that $\psi(x'',t) = \int{d^3x' K(x'',t;x',t_0)\psi(x', t_0)}$, where it is given by
+\begin{equation}
+K(x'',t;x',t_0) = \sum_{a'}\braket{x''|a'}\braket{a'|x'}e^{-iE_{a'}(t - t_0)/\hbar}
+\end{equation}
 
 
 
