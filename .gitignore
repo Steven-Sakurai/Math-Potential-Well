@@ -3,3 +3,5 @@
 *.log
 *.synctex.gz
 *.log
+.DS_Store
+*.swp
