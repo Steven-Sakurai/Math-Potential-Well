@@ -1,7 +1,10 @@
 \documentclass[a4paper, 11pt]{article}
+\usepackage[top=1.0in, bottom=1.0in, left=1.2in, right=1.2in]{geometry} 
 \usepackage{indentfirst}
 \usepackage{amsmath}
+\usepackage{amsthm}
 \usepackage{amssymb}
+\usepackage{amsfonts}
 \usepackage{bbm}
 \usepackage[]{braket}
 \title{\textbf{Stochastic Analysis}}
@@ -94,7 +97,7 @@ We have $(\Omega, \mathcal{F}, \mathbb{P})$ and $filtration$ $\mathcal{F}(t)$ de
 We have $W(t), 0\leq t \leq T$ on $(\Omega, \mathcal{F}, \mathbb{P})$, and let $\mathcal{F}(t), 0 \leq t \leq T$ be the filtration for $W(t)$ and $\Theta(t)$ be an adapted process to it. Define
 \begin{subequations}
 \begin{align}
-Z(t) &= exp{-\int_0^t\Theta(u)dW(u) - \frac{1}{2}\int_0^t\Theta^2(u) du}, \\
+Z(t) &= exp\{-\int_0^t\Theta(u)dW(u) - \frac{1}{2}\int_0^t\Theta^2(u) du\}, \\
 \widetilde{W(t)} &= W(t) + \int_0^t\Theta(u)du, \\
 assume &\quad \mathbb{E}\int_0^T \Theta^2(u)Z^2(u)du < \infty
 \end{align}
@@ -126,13 +129,89 @@ M(t) = M(0) + \int_0^t \Gamma(u)dW(u), 0 \leq t \leq T.
 \section{Stochastic Differentiation Equations}
 
 \subsection{Markov Property}
+Solutions to \textit{S.D.E.} are \textit{Markov processes}.
 
 \subsection{Feynmann-Kac Theorem, one dimension}
+Consider the following \textit{S.D.E.}:
+\begin{equation}
+dX(u) = \beta(u, X(u)) du + \gamma(u, X(u)) dW(u)
+\end{equation}
+Fix $T > 0$, let $0 \leq t \leq T$. Let $h(y)$ be \textit{Borel-measurable}. Define the function
+\begin{equation}
+g(t, x) = \mathbb{E}^{t, x}h(X(T))
+\end{equation}
+$\Longrightarrow$ $g(t, x)$ satisfies \textit{P.D.E.}:
+\begin{subequations}
+\begin{align}
+g_t + \beta g_x + \frac{1}{2}\gamma^2 g_{xx} &= 0 \\
+g(T, x) = h(x)
+\end{align}
+\end{subequations}
+\textit{Sketch of Proof: }\\
+\indent It follows immediately that the process $g(t, X(t))$ is a martingale.\par
+On the other hand, we have
+\begin{equation}
+dg(t, X(t)) = [g_t + \beta g_x + \frac{1}{2}\gamma^2 g_xx]dt + \gamma g_x dW(t)
+\end{equation}
+Therefore, the $dt$ term must be $0$.
+
+\subsection{General Version of Feynman-Kac}
+For $0 \leq t \leq T$, $x \in \mathbb{R}^d$, $d-dim$ $W(t)$, $\sigma$ is a $d \times d$ diffusion matrix, 
+\begin{equation}
+X(\theta) = x +\int_t^{\theta}{\mu(s, X(s))ds}+\int_t^{\theta}{\sigma(s, X(s))dW(s)}
+\end{equation}
+\indent We define operator $\mathcal{A}_t=\sum_i \mu_i \partial_{x_i} + \frac{1}{2}\sum_{i,j}a_{ij}\frac{\partial^2}{\partial{x_i}\partial{x_j}}$, where $a_{ij} = \sum_k \sigma_{ik} \sigma{jk}$.\par
+Under some technical conditions which often hold, we have
+\begin{equation}
+V(t, x) = \mathbb{E}[\int_t^T e^{-\int_t^{\theta}k(u, X(u))du} f(\theta, X(\theta))d\theta + g(X(T)) e^{-\int_t^T k(u, X(u))du}]
+\end{equation}
+solves the \textit{P.D.E.} with terminal condition:
+\begin{subequations}
+\begin{align}
+\frac{\partial V}{\partial t} + \mathcal{A}_t V + f &= kV \\
+V(T, y) = g(y)
+\end{align}
+\end{subequations}
+\indent We can verify $V(t, x)$ solves the equation. \textit{Define}
+\begin{subequations}
+$\beta(t) = e^{-\int_0^t{k(u, X(u))du}}$, then it follows
+\begin{align}
+V(t, X(t)) &= \mathbb{E}[\int_t^T \frac{\beta(s)}{\beta(t)}f(s, X(s))ds + \frac{\beta(T)}{\beta(t)}g(X(T))|\mathcal{F}(t)] \\
+M(t) &= \beta(t) V(t, X(t)) + \int_0^t \beta(s)f(s, X(s))ds \\
+\Longrightarrow M(t) &=  \mathbb{E}[\int_0^T \beta(s)f(s, X(s))ds + \beta(T)g(X(T))|\mathcal{F}(t)]
+\end{align}
+\end{subequations}
+\indent Obviously $M(t)$ is a \textit{Levy martingale}. What is left to show is calculate $dM(t)$ and set $dt$ term to $0$ to obtain the \textit{P.D.E.} $V(t, X(t))$ solves.\par
+Notes: 
+\begin{enumerate}
+\item $V(t, X(t))$ is the asset price at time $t$. In practice, we often change to risk-neutral measure first.
+\item $g(y)$ is the final payoff function w.r.t. stock price $y$
+\item $k(u, X(u))$ is the interest rate, then $\beta(t)$ is the discount factor
+\item Setting $f = 0, k(u, X(u)) = r = const$, and change to risk-neutral measure w.r.t. an underlying stock for a call option, we have the common form of \textit{Discounted Feynman-Kac}:
+\begin{equation}
+c(t, X(t)) = \mathbb{E}^{\mathbb{Q}}[e^{-r(T-t)}(S(T) - K)^{+}|\mathcal{F}(t)]
+\end{equation}
+\end{enumerate}
 
 \subsection{Transitional Density}
+\textit{Definition:}
+\begin{equation}
+\mathbb{P}(X(T)\in A | X(t) = x) = \int_A p(t,T,x,y) dy
+\end{equation}
+\begin{equation}
+\mathbb{E}^{t, x}h(X(T)) = \int h(y)p(t, T, x, y)dy
+\end{equation}
+
+\begin{equation}
+p^{t, x}(T, y) = \int{p(t, T, x, y) p(t, x) dx}
+\end{equation}
 
 \subsection{Kolmogorov Backward \& Forward Equation}
-$Shreve$ $P_{291}$\\
+$Shreve$ $P_{291}$\par
+For process $X(t)$:
+\begin{equation}
+dX(t) = \beta(t, X(t))dt + \gamma(t, X(t))dW(t)
+\end{equation}
 \begin{subequations}
 Let $\mathcal{A}_t = \beta(t, x)\frac{\partial}{\partial x} + \frac{1}{2} \gamma^2(t, x) \frac{\partial^2}{\partial x^2}$, $\mathcal{A}_t^{\dag} = \beta(t, x)\frac{\partial}{\partial x} - \frac{1}{2} \gamma^2(t, x) \frac{\partial^2}{\partial x^2}$.\\(Note that $t \sim x, T \sim y$) \\
 Let the transitional density be $p(t, T, x, y)$.
