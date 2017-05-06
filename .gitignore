@@ -3,5 +3,9 @@
 *.log
 *.synctex.gz
 *.log
+*.fdb_latexmk
+*.fls
+
+# others
 .DS_Store
 *.swp
