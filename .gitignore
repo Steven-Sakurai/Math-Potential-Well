@@ -1,0 +1,5 @@
+# irritating tex
+*.aux 
+*.log
+*.synctex.gz
+*.log
