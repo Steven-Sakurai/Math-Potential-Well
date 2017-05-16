@@ -85,5 +85,123 @@ Finally, perform the Gaussian integration:
 p_{BS}(x, \tau;x') = e^{-r\tau} \frac{1}{\sqrt{2\pi \tau \sigma^2}} exp\{ - \frac{1}{2 \sigma^2 \tau}(x - x' + \tau(r - \frac{\sigma^2}{2}) )^2 \}
 \end{equation}
 
+section{(f)}
+We've known that P(x,T-t,x') is the conditional probability density that, given security price x at time t, it will have a value of x' at time T.\\
+\indent The expectation of x' at time $\tau$ can therefore be calculated( it's a simple convolution):
+\begin{equation}
+<x(\tau)>=\int_{-\infty }^{+\infty }x'P_{BS}(x,\tau;x')dx'=\frac{e^{-r\tau}}{\sqrt{2\pi \tau \sigma ^2}}\int_{-\infty }^{+\infty }x'e^{-\frac{1}{2\tau \sigma ^2}[x-x'+\tau(r-\frac{\sigma ^2}{2})]^2}dx'.
+\end{equation}
+\indent Finally we can derive:
+\begin{equation}
+<x(\tau)>=[x+\tau(r-\frac{\sigma ^2}{2})]e^{-r\tau}.
+\end{equation}
+The result tells us the evolution of x( which equals ln(S)) over time.
 
+\section{(g)}
+\indent Consider a down-and-out barrier European option. If $s\leq e^B(x\leq B)$ it will become worthless, which means $c=0$. \\
+\indent For an arbitrary potential $v(x)$, we have:$\frac{\partial c}{\partial t}=Hc$, where $H$ can be written as:
+\begin{equation}
+H=-\frac{\sigma ^2}{2}\frac{\partial^2 }{\partial x^2}+(\frac{\sigma^2}{2} -r)\frac{\partial }{\partial x}+V(x).
+\end{equation}
+\indent Obviously, if we set $V(x)=\infty$ when $x\leq B$, then $c=0$ is automaticlly satisfied. However, when $x>B$, the changing of $c$ still conform to the B-S formula. comparing with $H_{BS}$, we have:
+V(x)=
+$\left\{\begin{matrix}
++\infty,x\leq B.\\
+r,x>B.
+\end{matrix}\right.$
+
+\section{(i)}
+We know that r(t) satisfied Langevin equation:
+\begin{equation}
+\frac{dr}{dt}=a(r,t)+\sigma (r,t)R(t).
+\end{equation}
+\indent Here R(t) is still Gaussian noise.\\
+\indent Define the propagator $P(r,t;r_{0})$: if $r(t_0)=r_0$, the probability of r(t)=r equals $P(r,t;r_{0})$.\\
+\indent From the Langevin equation we have:
+\begin {equation}
+r(t+\varepsilon )=r(t)+\varepsilon [a+\sigma R(t)].
+\end{equation}
+Change it into the following formula:
+\begin {equation}
+r={r}'+\varepsilon [a({r}')+\sigma ({r}')R(t)].
+\end{equation}
+\indent Thus we can calculate the propagator:
+\begin {equation}
+P(r,t+\varepsilon ,r_{0})=P({r}',t;r_{0})|_{{r}'=r-\varepsilon [a({r}')+\sigma ({r}')R(t)]}
+ =\int P({r}',t;r_{0})\delta (r-{r}'-\varepsilon [a({r}')+\sigma ({r}')R(t)])d{r}'
+ \simeq \int P({r}',t;r_{0})d{r}'\{\delta (r-{r}') +\frac{\partial \delta (r-{r}')}{\partial {r}'}\varepsilon [a({r}')+\sigma ({r}')R(t)] 
++ \frac{1}{2}\frac{\partial^2 \delta (r-{r}')}{\partial {r}'^2} \varepsilon ^2 [a({r}')+\sigma ({r}')R(t)]^2 +... \}.
+\end{equation}
+\indent Because $<R^2(t)>=\frac{1}{\varepsilon}$ and $<R(t)>=0$, the previous formula can be re-written like this:
+\begin{equation}
+P(r,t+\varepsilon ,r_{0})=P({r}',t;r_{0})+\int d{r}'P({r}',t;r_{0}) \{ \frac{\partial \delta (r-{r}')}{\partial {r}'}\varepsilon a({r}')+\frac{1}{2}\frac{\partial^2 \delta (r-{r}')}{\partial {r}'^2}\varepsilon ^2 \sigma ^2({r}')\frac{1}{\varepsilon } \} 
+ = P({r}',t;r_{0})-\varepsilon \frac{\partial }{\partial r}[a(r)P(r,t;r_0)]+\frac{\varepsilon }{2}\frac{\partial^2 }{\partial r^2}[\sigma (r)^2 P(r,t;r_0)].
+\end{equation}
+\indent If a variable is o($\varepsilon$), it is automatically neglected.\\
+\indent Thus, from the definition of derivative, we have:
+\begin{equation}
+\frac{\partial P(r,t;r_0)}{\partial t}=[\frac{1}{2}\frac{\partial^2 }{\partial r^2}\sigma ^2(r)-\frac{\partial }{\partial r}a(r)]P(r,t;r_0).
+\end {equation}
+\indent We've already known that:
+\begin{equation}
+\frac{\partial P(r,t;r_0)}{\partial t}=-H_{F}P(r,t;r_0).
+\end{equation}
+Therefore we can prove:
+\begin{equation}
+H_{F}=-\frac{1}{2}\frac{\partial^2 }{\partial r^2}\sigma ^2(r)+\frac{\partial }{\partial r}a(r)=-\frac{1}{2}\frac{\partial^2 }{\partial r^2}\sigma ^2(r)+a(r)\frac{\partial }{\partial r}+\frac{\partial a(r)}{\partial r}.
+\end{equation}
+\indent From a different perspective, we define $P_{B}(R,t;r)$ as the back propagator.\\
+\indent Similarly we have( since the time flows backwards this time):
+\begin{equation}
+\frac{\partial P_{B}(R,t;r)}{\partial t}=+H_{B}P_{B}(R,t;r).
+\end{equation}
+\indent Finally we can calculate:
+\begin{equation}
+H_{B}=-\frac{1}{2}\sigma ^2(r)\frac{\partial^2 }{\partial r^2}-a(r)\frac{\partial }{\partial r}.
+\end{equation}
+$H_{B}=H_{F}^{\dag}.$ is obvious.
+
+\section{(j)}
+In this part we'll focus on the so-called "\textbf{stochastic Quantization}".\\
+\indent The Langevin equation:
+\begin{equation}
+\frac{dr}{dt}=a(r,t)+\sigma (r.t)R(t)
+\end{equation}
+is satisfied at any time between $t_{0}$ and $T$. We must consider that both $r$ and $R$ are stochastic variables. Therefore when calculating $z_{B}$( can be compared to partition function in statistical mechanics), we must integrate over all possible paths
+\begin{equation}
+Z_{B}=\int DRDr\prod_{t=t_{0}}^T \delta [\frac{dr}{dc}-a(r,t)-\sigma (r,t)R(t)]e^-\frac{1}{2}\int_{t_{0}}^{T}R^2 (t)dt
+\end{equation}
+$Dr$ means integrating over all possible $r(t): \int Dr=\int_{-\infty}^{+\infty} \prod_{t=t_{0}}^T dr(t)$.\\
+\indent We hope to write $Z_{B}$ int the form of $z_{B}=\int Dre^{s_{B}}$. Because of this, we calculate the integral over $R$ first:
+\begin{equation}
+Z_{B}=\int Drexp(-\frac{1}{2}\int_{t_{0}}^T \frac{[\frac{dr}{dt}-a(r,t)]^2}{\sigma^2 (r,t)}dt).
+\end{equation}
+\indent Because the $Dirac-\delta$ function makes sure we only keep $R(t)$ that satisfies the Langevin equation: $R(t)=\frac{\frac{dr}{dt}-a(r,t)}{\sigma (r,t)}$.\\
+\indent It's easy to calculate $S_{B}$:
+\begin{equation}
+S_{B}=-\frac{1}{2}\int_{t_{0}}^T \frac{[\frac{dr}{dt}-a(r,t)]^2}{\sigma^2 (r,t)}dt.
+\end{equation}
+\indent From the definition of $S_{B}:S_{B}=\int_{t_{0}}^T Ldt,$ it's clear that:
+\begin{equation}
+L=-\frac{[\frac{dr}{dt}-a(r,t)]^2}{2\sigma^2 (r,t)}dt.
+\end{equation}
+
+\section{(k)}
+The Vasicek model can be described using the following equation:
+\begin{equation}
+\frac{dr}{dt}=a(b-r)+\sigma R(t).
+\end{equation}
+\indent Note that if we set 
+$\left\{\begin{matrix}
+a(r,t)=a(b-r).\\
+\sigma (r,t)=\sigma .
+\end{matrix}\right.$ in Langevin equation( a,b,$\sigma$ are all constants), we have the Vasicek model naturally.\\
+\indent Thus we get:
+\begin{equation}
+L_{V}=-\frac{[\frac{dr}{dt}-a(b-r)]^2}{2\sigma ^2}.
+\end{equation}
+\begin{equation}
+S_{V}=-\frac{1}{2\sigma ^2}\int_{t_0}^{T}[\frac{dr}{dt}-a(b-r)]^2 dt.
+\end{equation}
+In the next section we'll use $S_{V}$ to calculate the propagator of Vasicek model.
 \end{document}
