@@ -7,7 +7,8 @@
 \usepackage{enumitem} 
 \usepackage{amsmath}  
 \usepackage{braket}    
-\usepackage{fontspec,xltxtra,xunicode}  
+\usepackage{fontspec,xltxtra,xunicode} 
+
 
 \usepackage[]{xeCJK}
 \setCJKmainfont[ItalicFont=STHeitiSC-Light]{STSong}
@@ -124,7 +125,7 @@ After obtaining the pricing kernel, we can get the price of call option at time 
 c(\tau, x) = \int_{- \infty}^{\infty} g(x') P_{BS} dx'
 \end{equation}
 where in this case, $g(x') = (e^{x'} - K)^{+}$. $(x)^{+}$ takes $x$ when $x > 0$ and takes $0$ when $x \leq 0$. Therefore, the integration only takes place in $x \in (lnK, \infty)$.\par
-After noticing, the pricing kernel is actually $e^{-r \tau}$ mutilpying a normal distribution, we can define $d_{-}(\tau, x) = \frac{1}{\sigma \tau} [\frac{x}{lnK} + (r - \frac{1}{2}\sigma^2)\tau], d_{+} = d_{-} + \sigma \sqrt{\tau}$, $N(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^x e^{-\frac{x^2}{2}}$. We separate the integration into two parts: $K$ and $e^x$.\par
+After noticing, the pricing kernel is actually $e^{-r \tau}$ mutilpying a normal distribution, we can define $d_{-}(\tau, x) = \frac{1}{\sigma\sqrt{\tau}} [\frac{x}{lnK} + (r - \frac{1}{2}\sigma^2)\tau], d_{+} = d_{-} + \sigma \sqrt{\tau}$, $N(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^x e^{-\frac{x^2}{2}}$. We separate the integration into two parts: $K$ and $e^x$.\par
 \begin{subequations}
 \begin{align}
 \int_{lnK}^{\infty} K P_{BS} dx' &= e^{-r\tau}KN(d_{-}(\tau, x)) \\
@@ -135,6 +136,54 @@ Remember that $s = e^{x}$, we have the pricing formula for $c(t, s)$:
 \begin{equation}
 c(t, s) = sN(d_{+}(\tau, s)) - e^{-r\tau} K N(d_{-}(\tau, s))
 \end{equation}
+
+With this formula, we can plot the time-evolution of stock prices and call option prices.\par
+The following code does the job in $R$, results shown in $fig.1 \sim 3$
+\begin{verbatim}
+c_time_evolution <- function(sigma, x0, r, K)
+{
+    tau = seq(0, 1, 0.01)[-1]
+    w = rnorm(100, 0, 0.01)
+    w = cumsum(w)
+    # calculate s(t)
+    x = (r - 0.5*sigma^2) * tau + sigma * w
+    x = exp(x)
+    x = x0 * x
+    #fi
+    plot(tau, x, type='l')
+    
+    d1 = log(x/K) + (1 - tau) * (r + 0.5*sigma^2)
+    d1 = d1/(sqrt(1 - tau) * sigma)
+    d2 = d1 - sigma*sqrt(1 - tau)
+    c = x * pnorm(d1) - exp(-r * (1-tau)) * K * pnorm(d2)
+    plot(tau, c, 'l')
+}
+#fig.1
+c_time_evolution(sigma = 0.5, x0 = 100, r = 0.20, K = 100)
+#fig.2
+c_time_evolution(sigma = 0.5, x0 = 80, r = 0.20, K = 100)
+#fig.3
+c_time_evolution(sigma = 0.5, x0 = 120, r = 0.20, K = 100)
+\end{verbatim}
+
+\begin{figure}[H]
+\caption{Time-evolution of call option price}
+\includegraphics[scale = 0.6]{figure1.png}
+\end{figure}
+
+
+\begin{figure}[H]
+\caption{Time-evolution of call option price}
+\includegraphics[scale = 0.6]{figure2.png}
+\end{figure}
+
+
+\begin{figure}[H]
+\caption{Time-evolution of call option price}
+\includegraphics[scale = 0.6]{figure3.png}
+\end{figure}
+
+As shown in these figures, call option price drops as $(T-t)$ decreases.
 
 \section{(g)}
 \indent Consider a down-and-out barrier European option. If $s\leq e^B(x\leq B)$ it will become worthless, which means $c=0$. \\
