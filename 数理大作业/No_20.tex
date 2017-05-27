@@ -75,8 +75,8 @@ d\Pi = c_t dt + c_s ds + \frac{1}{2}c_{ss} ds ds - c_s ds.
 \begin{equation}
 c_t + \frac{1}{2}\sigma^2 s^2 c_{ss} + rsc_s - rc = 0.
 \end{equation}
-\indent Why the equation does not contain \phi?
-
+\indent Why the equation does not contain \phi ?
+\indent Intuitively, it means that the expected return of an stock has nothing to do with the derivatives pricing. In other words, if there are two stocks at the same price today, which are expected to have different rate of returns in the future, will have the same the price for their derivatives, whether it be options or something else. It might seem weird at first sight because a call option should have a higher price if the the underlying stock is expected to rise up. But actually it is not. Derivatives pricing is relative pricing instead of absolute pricing. If the return is high, it might have a higher volatility. And the price of the stock today reflects every piece of information at present. So when pricing a Derivative, we just consider the price S, and do not include the expected return, \phi. It's just derived from the underlying assets.
 
 \section*{Another Way of Obtaining B-S Formula}
 According to non-arbitrage postulate, if at time $0$, $c(0, S(0)) = c_0$, then we should should be able to construct a portfolio $X(t)$(with $X(0) = c_0$) to replicate exactly this option. We should use the underlying stock $S(t)$ and the money market with interest rate $r$. Suppose we hold $\Delta(t)$ share of stock at time $t$, then it follows:
