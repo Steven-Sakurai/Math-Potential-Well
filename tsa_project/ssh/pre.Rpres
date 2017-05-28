@@ -1,0 +1,50 @@
+Time Series Analysis on Global Temperature
+========================================================
+author: Steven
+date: \today
+autosize: true
+
+First Slide
+========================================================
+
+For more details on authoring R presentations please visit <https://support.rstudio.com/hc/en-us/articles/200486468>.
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+Packages to use
+========================================================
+
+```{r}
+library(curl)
+library(forecast)
+library(TSA)
+library(rugarch)
+```
+
+
+Grab Data
+========================================================
+
+```{r, eval=FALSE, include=FALSE}
+tmpf <- tempfile()
+url = "http://www.metoffice.gov.uk/hadobs/hadcrut4/data/
+current/time_series/HadCRUT.4.5.0.0.monthly_ns_avg.txt"
+curl_download(url, tmpf)
+gtemp <- read.table(tmpf)[, 1:2]
+temp = gtemp$V2[1:2004]
+#de-seasonal
+myTS = decompose(ts(temp, frequency = 12))
+# seems that inside decompose return value:
+# x(original) = figure(seasonal) + trend + random(residuals) 
+res = myTS$random
+res.NA = res[1:1998] 
+```
+
+Slide With Plot
+========================================================
+
+```{r, echo=FALSE}
+plot(cars)
+```
