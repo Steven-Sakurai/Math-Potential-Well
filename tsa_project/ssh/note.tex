@@ -168,7 +168,6 @@ my_sGARCH_test <- function(p, q, m, n, ts.data = res)
 \end{verbatim}
 \indent After trying a few times from $(1, 0)$ to $(5, 5)$, \textit{GARCH(1 ,1)} is the most satisfying model.
 \begin{verbatim}
-> fit
 > fit = my_sGARCH_test(1, 1, 1, 2, res)
 > fit
 
@@ -184,94 +183,91 @@ Distribution	: norm
 
 Optimal Parameters
 ------------------------------------
-        Estimate  Std. Error     t value Pr(>|t|)
-mu      0.000021    0.000031  6.6898e-01 0.503509
-ar1     0.656721    0.017318  3.7921e+01 0.000000
-ma1    -0.829580    0.000010 -7.9768e+04 0.000000
-ma2    -0.165154    0.000037 -4.4098e+03 0.000000
-omega   0.000063    0.000020  3.2269e+00 0.001251
-alpha1  0.025901    0.003165  8.1827e+00 0.000000
-beta1   0.966408    0.002955  3.2699e+02 0.000000
+        Estimate  Std. Error  t value Pr(>|t|)
+ar1    -0.400525    0.187007  -2.1418 0.032213
+ma1     0.618016    0.184788   3.3445 0.000824
+ma2     0.145898    0.039784   3.6672 0.000245
+omega   0.000079    0.000022   3.5151 0.000440
+alpha1  0.026802    0.003127   8.5718 0.000000
+beta1   0.965023    0.002942 328.0210 0.000000
 
 Robust Standard Errors:
-        Estimate  Std. Error     t value Pr(>|t|)
-mu      0.000021    0.000026  7.9059e-01 0.429185
-ar1     0.656721    0.017500  3.7527e+01 0.000000
-ma1    -0.829580    0.000004 -2.2586e+05 0.000000
-ma2    -0.165154    0.000068 -2.4225e+03 0.000000
-omega   0.000063    0.000020  3.1854e+00 0.001446
-alpha1  0.025901    0.003232  8.0135e+00 0.000000
-beta1   0.966408    0.001365  7.0795e+02 0.000000
+        Estimate  Std. Error  t value Pr(>|t|)
+ar1    -0.400525    0.113813  -3.5191 0.000433
+ma1     0.618016    0.109338   5.6524 0.000000
+ma2     0.145898    0.029318   4.9764 0.000001
+omega   0.000079    0.000024   3.3133 0.000922
+alpha1  0.026802    0.003460   7.7452 0.000000
+beta1   0.965023    0.001380 699.4205 0.000000
 
-LogLikelihood : 1960.533 
+LogLikelihood : 1802.235 
 
 Information Criteria
 ------------------------------------
                     
-Akaike       -1.9614
-Bayes        -1.9417
-Shibata      -1.9614
-Hannan-Quinn -1.9542
+Akaike       -1.8034
+Bayes        -1.7866
+Shibata      -1.8035
+Hannan-Quinn -1.7973
 
 Weighted Ljung-Box Test on Standardized Residuals
 ------------------------------------
                          statistic p-value
-Lag[1]                      0.4938  0.4823
-Lag[2*(p+q)+(p+q)-1][8]    53.1672  0.0000
-Lag[4*(p+q)+(p+q)-1][14]   71.9866  0.0000
+Lag[1]                     0.03983  0.8418
+Lag[2*(p+q)+(p+q)-1][8]   83.58401  0.0000
+Lag[4*(p+q)+(p+q)-1][14] 115.46992  0.0000
 d.o.f=3
 H0 : No serial correlation
 
 Weighted Ljung-Box Test on Standardized Squared Residuals
 ------------------------------------
                         statistic   p-value
-Lag[1]                      12.76 3.533e-04
-Lag[2*(p+q)+(p+q)-1][5]     17.44 9.751e-05
-Lag[4*(p+q)+(p+q)-1][9]     25.41 7.594e-06
+Lag[1]                      19.95 7.952e-06
+Lag[2*(p+q)+(p+q)-1][5]     25.77 4.870e-07
+Lag[4*(p+q)+(p+q)-1][9]     35.20 1.604e-08
 d.o.f=2
 
 Weighted ARCH LM Tests
 ------------------------------------
             Statistic Shape Scale  P-Value
-ARCH Lag[3]   0.01376 0.500 2.000 0.906619
-ARCH Lag[5]   3.57130 1.440 1.667 0.216963
-ARCH Lag[7]  11.37620 2.315 1.543 0.008741
+ARCH Lag[3]   0.01004 0.500 2.000 0.920201
+ARCH Lag[5]   4.34569 1.440 1.667 0.145206
+ARCH Lag[7]  12.67065 2.315 1.543 0.004281
 
 Nyblom stability test
 ------------------------------------
-Joint Statistic:  2.3108
+Joint Statistic:  1.8386
 Individual Statistics:              
-mu     0.09865
-ar1    0.33227
-ma1    0.47659
-ma2    0.51154
-omega  0.12277
-alpha1 0.44943
-beta1  0.24423
+ar1    0.04232
+ma1    0.02495
+ma2    0.31694
+omega  0.09752
+alpha1 0.49017
+beta1  0.22730
 
 Asymptotic Critical Values (10% 5% 1%)
-Joint Statistic:     	 1.69 1.9 2.35
+Joint Statistic:     	 1.49 1.68 2.12
 Individual Statistic:	 0.35 0.47 0.75
 
 Sign Bias Test
 ------------------------------------
                    t-value      prob sig
-Sign Bias            1.811 0.0702699   *
-Negative Sign Bias   2.571 0.0102247  **
-Positive Sign Bias   3.036 0.0024298 ***
-Joint Effect        21.325 0.0000901 ***
+Sign Bias           0.4332 6.649e-01    
+Negative Sign Bias  3.7994 1.494e-04 ***
+Positive Sign Bias  3.3241 9.031e-04 ***
+Joint Effect       26.4729 7.593e-06 ***
 
 
 Adjusted Pearson Goodness-of-Fit Test:
 ------------------------------------
   group statistic p-value(g-1)
-1    20     57.60    9.222e-06
-2    30     68.57    4.742e-05
-3    40     87.64    1.333e-05
-4    50    104.89    6.078e-06
+1    20     64.71    6.813e-07
+2    30     77.58    2.605e-06
+3    40     90.01    6.563e-06
+4    50    112.02    7.711e-07
 
 
-Elapsed time : 0.3056059
+Elapsed time : 0.2998619 
 \end{verbatim}
 
 \indent Substract the standardized(w.r.t. the variance model) residuals $z$, which is $z = \cfrac{residuals(fit)}{sigma(fit)}$.
@@ -311,9 +307,9 @@ plot.ts(rnorm(1992, 0.2010495, 1.00525))
 Weighted ARCH LM Tests
 ------------------------------------
             Statistic Shape Scale  P-Value
-ARCH Lag[3]   0.01376 0.500 2.000 0.906619
-ARCH Lag[5]   3.57130 1.440 1.667 0.216963
-ARCH Lag[7]  11.37620 2.315 1.543 0.008741
+ARCH Lag[3]   0.01004 0.500 2.000 0.920201
+ARCH Lag[5]   4.34569 1.440 1.667 0.145206
+ARCH Lag[7]  12.67065 2.315 1.543 0.004281
 \end{verbatim}
 
 We can see our model successfully wipes out ARCH effect at smaller lags, but fails at $lag[7]$. This is the best `sGARCH' can give with respest to our data.
