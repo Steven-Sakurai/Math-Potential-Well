@@ -48,7 +48,7 @@ The time series of $temp$ is shown below:
 \section{Dealing with the time series}
 
 \subsection{Decompose}
-The first thing we might want to do is to wipe out the seasonal component and the time trend. There're many approaches to do it in R. We choose to use the $decompose() provided by \{stats\}$. Looking at the time series, we think a additive model should be appropriate. Therefore, decompose the time series using the following code:
+The first thing we might want to do is to wipe out the seasonal component and the time trend. There're many approaches to do it in R. We choose to use the $decompose()$ provided by $\{stats\}$. Looking at the time series, we think a additive model should be appropriate. Therefore, decompose the time series using the following code:
 
 \begin{verbatim}
 library(TSA)
@@ -63,7 +63,7 @@ res = res.noNA[1:1992]
 \begin{figure}[H]
 \centering
 \caption{original ts, time trend, additive seasonal component, residuals}
-\includegraphics[scale=.60]{component.png}
+\includegraphics[scale=.50]{component.png}
 \end{figure}
 
 \indent brief results:
