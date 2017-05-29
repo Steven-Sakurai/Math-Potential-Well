@@ -22,7 +22,9 @@ curl_download("http://www.metoffice.gov.uk/hadobs/hadcrut4/data/current/time_ser
 gtemp <- read.table(tmpf)[, 1:2]
 temp = gtemp$V2[1:2004]
 #de-seasonal
-myTS = decompose(ts(as.numeric(temp), frequency = 12))
+myTS = ts(as.numeric(temp), start = c(1850, 1), frequency = 12)
+myTS.additive = decompose(myTS)
+myTS.multiple = decompose(myTS, type = "multiplicative")
 # seems that inside decompose return value:
 # x(original) = seasonal(figure) + trend + random(residuals) 
 res = myTS$random[7:1998]
@@ -56,18 +58,6 @@ adf.test(arma_residual)
 gfit = my_sGARCH_test(c(1, 1), c(0, 0), ar_residual)
 
 
-gres = gfit@fit$residuals
-
-
-
-
-
-temp.diff = diff(gtemp$V2)
-adf.test(temp.diff)
-# small p-value suggest stationarity
-# 1850 ~ 2017 + 4month - 1:  2007 observ.
-auto.arima(temp.diff)
-
 
 my_sGARCH_test <- function(garchorder, armaorder, ts.data)
 {
@@ -89,5 +79,13 @@ setpar <- function(i1, i2)
 {
   par(mfrow=c(i1, i2))
 }
+
+
+
+
+
+
+
+
 
 

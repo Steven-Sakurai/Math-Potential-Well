@@ -48,11 +48,21 @@ The time series of $temp$ is shown below:
 \section{Dealing with the time series}
 
 \subsection{Decompose}
-The first thing we might want to do is to wipe out the seasonal component and the time trend. There're many approaches to do it in R. We choose to use the $decompose()$ provided by $\{stats\}$. Looking at the time series, we think a additive model should be appropriate. Therefore, decompose the time series using the following code:
+The first thing we might want to do is to wipe out the seasonal component and the time trend. There're many approaches to do it in R. We choose to use the $decompose()$ provided by $\{stats\}$. Looking at the time series, we think a additive model should be appropriate. \par
+We can quickly checked that multiplicative model is not appropriate:
+\begin{figure}[H]
+\centering
+\caption{multiplcative model: original ts, seasonal component, time trend, residuals}
+\includegraphics[scale=.40]{component2.png}
+\end{figure}
+Obviously the random term is not easy to be modelled.\par
+Therefore, decompose the time series using the following code:
 
 \begin{verbatim}
 library(TSA)
-myTS = decompose(ts(as.numeric(temp), frequency = 12))
+myTS = ts(as.numeric(temp), start = c(1850, 1), frequency = 12)
+myTS.additive = decompose(myTS)
+myTS.mutiple = decompose(myTS, type = "multiplicative")
 # TS$x = TS$seasonal + TS$trend + TS$random(residuals) 
 res = myTS$random
 # wipe out NAs
@@ -62,9 +72,12 @@ res = res.noNA[1:1992]
 \indent The $res$ now is free of seasonal component and time trend. The following graph illustrate the components.
 \begin{figure}[H]
 \centering
-\caption{original ts, time trend, additive seasonal component, residuals}
+\caption{additive model: original ts, time trend, seasonal component, residuals}
 \includegraphics[scale=.50]{component.png}
 \end{figure}
+
+
+
 
 \indent brief results:
 \begin{verbatim}
