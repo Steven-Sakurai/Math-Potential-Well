@@ -30,8 +30,8 @@ myTS.multiple = decompose(myTS, type = "multiplicative")
 res = myTS$random[7:1998]
 
 fit = my_sGARCH_test(1, 1, 1, 2, res)
-fit
-
+fore = ugarchforecast(fit)
+plot(fore)
 
 
 
