@@ -1,0 +1,41 @@
+> y = as.numeric(log(myTS.adjusted + 1 - min(myTS.adjusted)))[600:2004]
+> plot.ts(y)
+> ty = 1:length(y)
+> trend = lm(y ~ ty)
+> summary(trend)
+
+Call:
+lm(formula = y ~ ty)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.33045 -0.05818  0.00610  0.05872  0.23594 
+
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 4.259e-01  4.613e-03   92.32   <2e-16 ***
+ty          3.309e-04  5.683e-06   58.23   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.0864 on 1403 degrees of freedom
+Multiple R-squared:  0.7073,    Adjusted R-squared:  0.7071 
+F-statistic:  3391 on 1 and 1403 DF,  p-value: < 2.2e-16
+
+> lmodel = arfima(random)
+> summary(lmodel)
+
+Call:
+  arfima(y = random) 
+
+*** Warning during (fdcov) fit: unable to compute correlation matrix; maybe change 'h'
+
+Coefficients:
+       Estimate
+d         0.292
+ar.ar1    0.716
+ar.ar2    0.060
+ma.ma1    0.492
+sigma[eps] = 0.05238576 
+[d.tol = 0.0001221, M = 100, h = 2.266e-05]
+Log likelihood:  2150 ==> AIC = -4289.255 [5 deg.freedom]

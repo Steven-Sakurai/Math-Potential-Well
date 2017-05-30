@@ -1,0 +1,81 @@
+%!TEX TS-program = xelatex  
+%!TEX encoding = UTF-8 Unicode  
+      
+\documentclass[a4paper, 9pt]{article}
+\usepackage[top=1.0in, bottom=1.0in, left=1.0in, right=1.0in]{geometry} 
+\usepackage{indentfirst}        
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\title{ARMA-GARCH}
+\author{SHIHENG SHEN}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Temperature Model}
+\subsection{Objective}
+Build a robust time series model to forecast future temperature's interval. 
+
+
+\subsection{Data Source}
+HadCRUT4 is a gridded dataset of global historical surface temperature anomalies relative to a 1961-1990 reference period. Data are available for each month since January 1850, on a 5 degree grid. \url{http://www.metoffice.gov.uk/hadobs/hadcrut4/data/current/time_series/HadCRUT.4.5.0.0.monthly_ns_avg.txt}.
+
+\subsection{Data adjustment}
+From the shown url, grab the monthly global mean of temperature anomalies from 1850-2016, which amounts to a length of 2004. Using decompose() function in R to get the adjusted value.(See appendix)  
+
+\subsection{Road Map}
+We went through a lot of difficulties during the construction of a proper model. Below is the basic idea I've thinked about.\par
+\begin{itemize}
+\item Dealing with Statonarity: diff() or time trend?
+\item Dealing with stochastic volatility: taking logarithm or exclude some data or both? Stochastic volatility model?
+\item Choosing model: ARIMA or ARFIMA or ARMA-sGARCH or ARMA-eGARCH or ARFIMA-sGARCH or ARFIMA-eGARCH?
+\end{itemize}
+
+
+
+
+
+
+
+\newpage
+\section{Appendix}
+
+\subsection{R Code}
+\subsubsection{Data Adjustment}
+\begin{verbatim}
+library(curl)
+tmpf <- tempfile()
+curl_download(url, tmpf)
+gtemp <- read.table(tmpf)[, 1:2]
+temp = gtemp$V2[1:2004]
+library(TSA)
+myTS = ts(as.numeric(temp), start = c(1850, 1), frequency = 12)
+myTS.additive = decompose(myTS)
+myTS.adjusted = myTS.additive$x - myTS.additive$seasonal
+\end{verbatim}
+
+
+
+
+\subsection{Figures}
+
+
+
+
+
+\subsection{Details about \textit{decompose()} used in seasonal adjustment}
+Type `decompose' in R console, we can see the source code of this function. The process of `type = additive' is listed below:
+\begin{itemize}
+\item the argument passed into decompose() is a `ts' object 
+\item denote the argument ts(x, frequency = f). Create a filter using: filter = c(0.5, rep(1, f - 1), 0.5)/f.
+\item trend = filter(x, filter)
+\item season = x - trend, then compute f means of season with interval length f, the f means denoted by figure. Adjusting figure figure = figure - mean(figure)
+\item seasonal is just length(x)/f times repetition of figure.
+\item random = x - seasonal - trend
+\end{itemize}
+
+
+\end{document}
