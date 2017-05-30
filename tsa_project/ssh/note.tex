@@ -48,7 +48,7 @@ The time series of $temp$ is shown below:
 \section{Dealing with the time series}
 
 \subsection{Decompose}
-The first thing we might want to do is to wipe out the seasonal component and the time trend. There're many approaches to do it in R. We choose to use the $decompose()$ provided by $\{stats\}$. Looking at the time series, we think a additive model should be appropriate. \par
+The first thing we might want to do is to wipe out the seasonal component. There're many approaches to do it in R. We choose to use the $decompose()$ provided by $\{stats\}$. Looking at the time series, we think a additive model should be appropriate. \par
 We can quickly checked that multiplicative model is not appropriate:
 \begin{figure}[H]
 \centering
@@ -56,75 +56,103 @@ We can quickly checked that multiplicative model is not appropriate:
 \includegraphics[scale=.40]{component2.png}
 \end{figure}
 Obviously the random term is not easy to be modelled.\par
-Therefore, decompose the time series using the following code:
-
+Therefore, decompose the time series with additive method in the following code:
 \begin{verbatim}
 library(TSA)
 myTS = ts(as.numeric(temp), start = c(1850, 1), frequency = 12)
 myTS.additive = decompose(myTS)
-myTS.mutiple = decompose(myTS, type = "multiplicative")
-# TS$x = TS$seasonal + TS$trend + TS$random(residuals) 
-res = myTS$random
-# wipe out NAs
-res.noNA = res[7:2004] 
-res = res.noNA[1:1992]
+myTS.adjusted = myTS.additive$x - myTS.additive$seasonal
 \end{verbatim}
-\indent The $res$ now is free of seasonal component and time trend. The following graph illustrate the components.
+\indent The $myTS.adjusted$ now is free of seasonal components. The following graph illustrate the components.
 \begin{figure}[H]
 \centering
-\caption{additive model: original ts, time trend, seasonal component, residuals}
+\caption{additive model: seasonal component, adjusted series}
 \includegraphics[scale=.50]{component.png}
 \end{figure}
-
-
-
-
-\indent brief results:
+\indent Obviously, the time seires is not stationary. For simplicity, use \textit{diff()}.
 \begin{verbatim}
-> mean(res)
-[1] 0.0002073084
-> var(res)
-[1] 0.01139539
-> adf.test(res)
+dtemp = diff(myTS.adjusted)
+
+> adf.test(dtemp)
 
 	Augmented Dickey-Fuller Test
 
-data:  res
-Dickey-Fuller = -18.364, Lag order = 12, p-value = 0.01
+data:  dtemp
+Dickey-Fuller = -16.175, Lag order = 12, p-value = 0.01
 alternative hypothesis: stationary
 \end{verbatim}
-\indent So we can convince ourself that the time series $res$ is stationary.
+\indent So we can convince ourself that the time series $dtemp$ is stationary.
 
 \subsection{Build a \textit{ARMA(p, q)} for \textit{res}}
-For simplicity, we use $auto.arima()$ from $\{forecast\}$.
+For simplicity, we use $auto.arima()$ from $\{forecast\}$ to judge the order.
 \begin{verbatim}
 library(forecast)
-armamodel = auto.arima(res)
-\end{verbatim}
-\indent The results are all significant:
-
-\begin{verbatim}
-> armaModel
-Series: res 
-ARIMA(1,0,2) with zero mean     
+> auto.arima(dtemp> auto.arima(dtemp)
+Series: dtemp 
+ARIMA(2,0,4)(2,0,1)[12] with non-zero mean 
 
 Coefficients:
-          ar1     ma1     ma2
-      -0.5179  0.7198  0.1597
-s.e.   0.1572  0.1550  0.0326
+         ar1     ar2      ma1      ma2     ma3     ma4    sar1    sar2     sma1   mean
+      0.5041  0.3585  -1.0458  -0.1600  0.1362  0.0780  0.7619  0.0779  -0.7884  5e-04
+s.e.  0.2431  0.2142   0.2423   0.3481  0.1082  0.0257  0.0926  0.0248   0.0910  2e-04
 
-sigma^2 estimated as 0.01096:  log likelihood=1670.58
-AIC=-3333.17   AICc=-3333.15   BIC=-3310.78
-> Box.test(arma_residual, type = 'Ljung-Box')
+sigma^2 estimated as 0.01428:  log likelihood=1417.03
+AIC=-2812.05   AICc=-2811.92   BIC=-2750.43
+
+# first find the possible orders might be arma(2, 1) or arma(2, 4)
+
+arma21.dtemp = arima(dtemp, c(2, 0, 1))
+arma24.dtemp = arima(dtemp, c(2, 0, 4))
+
+# next examine the two models' residuals
+
+> auto.arima(arma21.dtemp$residuals)
+Series: arma21.dtemp$residuals 
+ARIMA(2,0,3)(2,0,1)[12] with zero mean     
+
+Coefficients:
+         ar1      ar2      ma1     ma2     ma3    sar1    sar2     sma1
+      1.5859  -0.6762  -1.6089  0.6706  0.0506  0.7454  0.0748  -0.7785
+s.e.  0.1156   0.1065   0.1169  0.1264  0.0297  0.1209  0.0258   0.1181
+
+sigma^2 estimated as 0.01429:  log likelihood=1415.92
+AIC=-2813.83   AICc=-2813.74   BIC=-2763.41
+
+> auto.arima(arma24.dtemp$residuals)
+Series: arma24.dtemp$residuals 
+ARIMA(0,0,0) with zero mean     
+
+sigma^2 estimated as 0.01435:  log likelihood=1408.31
+AIC=-2814.63   AICc=-2814.62   BIC=-2809.02
+\end{verbatim}
+\indent Therefore it should be appropriate to choose \textit{arma(2, 4)} for series $dtemp$.
+
+\begin{verbatim}
+my.arma = arma24.dtemp
+
+> my.arma
+
+Call:
+arima(x = dtemp, order = c(2, 0, 4))
+
+Coefficients:
+         ar1     ar2      ma1      ma2     ma3     ma4  intercept
+      0.5204  0.3247  -1.0536  -0.1269  0.1168  0.0755      5e-04
+s.e.  0.2733  0.2356   0.2727   0.3828  0.1117  0.0265      2e-04
+
+sigma^2 estimated as 0.01435:  log likelihood = 1407.67,  aic = -2801.34
+
+res = my.arma$residuals
+
+> Box.test(res, type = 'Ljung-Box')
 
 	Box-Ljung test
 
-data:  arma_residual
-X-squared = 0.086116, df = 1, p-value = 0.7692
+data:  res
+X-squared = 0.0058853, df = 1, p-value = 0.9388
 \end{verbatim}
 
-\indent The $ARMA(1, 2)$ success in making the arma residual independent. 
-
+\indent The $ARMA(2, 4)$ success in making the arma residual independent. 
 
 
 \subsection{GARCH}
@@ -138,30 +166,37 @@ One can be pretty satisfied with the results right now. Yet Looking at the plot 
 \indent It makes us wondering if it has $ARCH$ effect. Using $arch.test$ from $\{aTSA\}$ to perform the $LM-Test$:
 \begin{verbatim}
 library(aTSA)
-> my.arma = arima(res, order = c(1, 0, 2))
 > arch.test(my.arma)
 ARCH heteroscedasticity test for residuals 
 alternative: heteroscedastic 
 
 Portmanteau-Q test: 
-     order   PQ p.value
-[1,]     4  188       0
-[2,]     8  233       0
-[3,]    12  546       0
-[4,]    16  665       0
-[5,]    20  727       0
-[6,]    24 1035       0
+     order    PQ p.value
+[1,]     4  99.4       0
+[2,]     8 116.9       0
+[3,]    12 411.5       0
+[4,]    16 475.6       0
+[5,]    20 495.9       0
+[6,]    24 755.8       0
 Lagrange-Multiplier test: 
-     order   LM  p.value
-[1,]     4 1188 0.00e+00
-[2,]     8  577 0.00e+00
-[3,]    12  341 0.00e+00
-[4,]    16  199 0.00e+00
-[5,]    20  155 0.00e+00
-[6,]    24  127 2.22e-16
+     order   LM p.value
+[1,]     4 1418       0
+[2,]     8  697       0
+[3,]    12  418       0
+[4,]    16  212       0
+[5,]    20  168       0
+[6,]    24  137       0
 \end{verbatim}
+
+\begin{figure}[H]
+\centering
+\caption{arma residual}
+\includegraphics[scale=.50]{hetero.png}
+\end{figure}
+
+
+
 \indent It supports our doubt. Therefore we have the motive to build a $GARCH$ model. We decide to use the package $rugarch$.\par
-Though we do know that using $GARCH$ may change the order of $ARMA$, yet given our significance of $ARMA$ model and the difficulty in determing the order, we decide to only model the variance in 'sGARCH'(standard GARCH model):
 \begin{equation*}
 	\sigma_t^2 = (w + \sum_{j = 1}^m \zeta_j v_{jt}) + \sum_{j = 1}^q \alpha_j \varepsilon_{t-j}^2 + \sum_{j = 1}^p \beta_j \sigma_{t-j}^2
 \end{equation*} 
@@ -179,10 +214,11 @@ my_sGARCH_test <- function(p, q, m, n, ts.data = res)
     return(myfit)  
 }
 \end{verbatim}
-\indent After trying a few times from $(1, 0)$ to $(5, 5)$, \textit{GARCH(1 ,1)} is the most satisfying model.
+\indent After trying a few times from $(1, 0)$ to $(5, 5)$, \textit{GARCH(1 ,1), ARIMA(2, 0, 4)} is the most satisfying model.
 \begin{verbatim}
-> fit = my_sGARCH_test(1, 1, 1, 2, res)
-> fit
+fit1 = my_sGARCH_test(1, 1, 2, 4, dtemp)
+
+> fit1
 
 *---------------------------------*
 *          GARCH Model Fit        *
@@ -191,102 +227,111 @@ my_sGARCH_test <- function(p, q, m, n, ts.data = res)
 Conditional Variance Dynamics 	
 -----------------------------------
 GARCH Model	: sGARCH(1,1)
-Mean Model	: ARFIMA(1,0,2)
+Mean Model	: ARFIMA(2,0,4)
 Distribution	: norm 
 
 Optimal Parameters
 ------------------------------------
-        Estimate  Std. Error  t value Pr(>|t|)
-ar1    -0.400525    0.187007  -2.1418 0.032213
-ma1     0.618016    0.184788   3.3445 0.000824
-ma2     0.145898    0.039784   3.6672 0.000245
-omega   0.000079    0.000022   3.5151 0.000440
-alpha1  0.026802    0.003127   8.5718 0.000000
-beta1   0.965023    0.002942 328.0210 0.000000
+        Estimate  Std. Error     t value Pr(>|t|)
+ar1    -0.089169    0.038250    -2.33121 0.019742
+ar2     0.763456    0.026364    28.95834 0.000000
+ma1    -0.390348    0.019274   -20.25223 0.000000
+ma2    -0.880951    0.000338 -2603.65163 0.000000
+ma3     0.297715    0.026635    11.17774 0.000000
+ma4     0.012983    0.050864     0.25525 0.798527
+omega   0.000082    0.000034     2.40136 0.016334
+alpha1  0.023019    0.003610     6.37686 0.000000
+beta1   0.970582    0.004693   206.83542 0.000000
 
 Robust Standard Errors:
-        Estimate  Std. Error  t value Pr(>|t|)
-ar1    -0.400525    0.113813  -3.5191 0.000433
-ma1     0.618016    0.109338   5.6524 0.000000
-ma2     0.145898    0.029318   4.9764 0.000001
-omega   0.000079    0.000024   3.3133 0.000922
-alpha1  0.026802    0.003460   7.7452 0.000000
-beta1   0.965023    0.001380 699.4205 0.000000
+        Estimate  Std. Error     t value Pr(>|t|)
+ar1    -0.089169    0.083587    -1.06678 0.286070
+ar2     0.763456    0.055864    13.66623 0.000000
+ma1    -0.390348    0.041125    -9.49179 0.000000
+ma2    -0.880951    0.000796 -1106.83968 0.000000
+ma3     0.297715    0.059384     5.01339 0.000001
+ma4     0.012983    0.117876     0.11014 0.912296
+omega   0.000082    0.000036     2.28917 0.022069
+alpha1  0.023019    0.003647     6.31184 0.000000
+beta1   0.970582    0.003730   260.21194 0.000000
 
-LogLikelihood : 1802.235 
+LogLikelihood : 1512.547 
 
 Information Criteria
 ------------------------------------
                     
-Akaike       -1.8034
-Bayes        -1.7866
-Shibata      -1.8035
-Hannan-Quinn -1.7973
+Akaike       -1.5013
+Bayes        -1.4761
+Shibata      -1.5013
+Hannan-Quinn -1.4921
 
 Weighted Ljung-Box Test on Standardized Residuals
 ------------------------------------
                          statistic p-value
-Lag[1]                     0.03983  0.8418
-Lag[2*(p+q)+(p+q)-1][8]   83.58401  0.0000
-Lag[4*(p+q)+(p+q)-1][14] 115.46992  0.0000
-d.o.f=3
+Lag[1]                      0.5981  0.4393
+Lag[2*(p+q)+(p+q)-1][17]    7.2782  0.9990
+Lag[4*(p+q)+(p+q)-1][29]   18.4551  0.1194
+d.o.f=6
 H0 : No serial correlation
 
 Weighted Ljung-Box Test on Standardized Squared Residuals
 ------------------------------------
                         statistic   p-value
-Lag[1]                      19.95 7.952e-06
-Lag[2*(p+q)+(p+q)-1][5]     25.77 4.870e-07
-Lag[4*(p+q)+(p+q)-1][9]     35.20 1.604e-08
+Lag[1]                      31.45 2.045e-08
+Lag[2*(p+q)+(p+q)-1][5]     38.17 1.533e-10
+Lag[4*(p+q)+(p+q)-1][9]     51.67 3.408e-13
 d.o.f=2
 
 Weighted ARCH LM Tests
 ------------------------------------
-            Statistic Shape Scale  P-Value
-ARCH Lag[3]   0.01004 0.500 2.000 0.920201
-ARCH Lag[5]   4.34569 1.440 1.667 0.145206
-ARCH Lag[7]  12.67065 2.315 1.543 0.004281
+            Statistic Shape Scale   P-Value
+ARCH Lag[3]  0.009122 0.500 2.000 9.239e-01
+ARCH Lag[5] 11.200028 1.440 1.667 3.341e-03
+ARCH Lag[7] 20.729545 2.315 1.543 4.158e-05
 
 Nyblom stability test
 ------------------------------------
-Joint Statistic:  1.8386
+Joint Statistic:  2.8481
 Individual Statistics:              
-ar1    0.04232
-ma1    0.02495
-ma2    0.31694
-omega  0.09752
-alpha1 0.49017
-beta1  0.22730
+ar1    0.24868
+ar2    0.59898
+ma1    0.17360
+ma2    0.21711
+ma3    0.06382
+ma4    0.10027
+omega  0.09915
+alpha1 0.41690
+beta1  0.19806
 
 Asymptotic Critical Values (10% 5% 1%)
-Joint Statistic:     	 1.49 1.68 2.12
+Joint Statistic:     	 2.1 2.32 2.82
 Individual Statistic:	 0.35 0.47 0.75
 
 Sign Bias Test
 ------------------------------------
                    t-value      prob sig
-Sign Bias           0.4332 6.649e-01    
-Negative Sign Bias  3.7994 1.494e-04 ***
-Positive Sign Bias  3.3241 9.031e-04 ***
-Joint Effect       26.4729 7.593e-06 ***
+Sign Bias            0.405 6.856e-01    
+Negative Sign Bias   3.660 2.586e-04 ***
+Positive Sign Bias   4.500 7.193e-06 ***
+Joint Effect        33.651 2.347e-07 ***
 
 
 Adjusted Pearson Goodness-of-Fit Test:
 ------------------------------------
   group statistic p-value(g-1)
-1    20     64.71    6.813e-07
-2    30     77.58    2.605e-06
-3    40     90.01    6.563e-06
-4    50    112.02    7.711e-07
+1    20     53.37    4.122e-05
+2    30     66.07    1.025e-04
+3    40     90.72    5.294e-06
+4    50     98.27    3.776e-05
 
 
-Elapsed time : 0.2998619 
+Elapsed time : 0.3975561
 \end{verbatim}
 
 \indent Substract the standardized(w.r.t. the variance model) residuals $z$, which is $z = \cfrac{residuals(fit)}{sigma(fit)}$.
 
 \begin{verbatim}
-z = residuals(fit) / sigma(fit)
+z = residuals(fit1) / sigma(fit1)
 plot.ts(z)
 \end{verbatim}
 
@@ -299,14 +344,15 @@ plot.ts(z)
 \indent We can compute the mean and variance of $z$:
 \begin{verbatim}
 > mean(z)
-[1] 0.02010495
+[1] 0.0289858
 > var(z)
-[1] 1.00525
+         [,1]
+[1,] 1.012043
+> length(z)
+[1] 2003
+> plot(rnorm(2003, 0.0289858, 1.012043))
 \end{verbatim} 
 \indent And then, just for fun, plot a normal sample series with the same parameters:
-\begin{verbatim}
-plot.ts(rnorm(1992, 0.2010495, 1.00525))
-\end{verbatim}
 
 \begin{figure}[H]
 \centering
@@ -319,16 +365,23 @@ plot.ts(rnorm(1992, 0.2010495, 1.00525))
 \begin{verbatim}
 Weighted ARCH LM Tests
 ------------------------------------
-            Statistic Shape Scale  P-Value
-ARCH Lag[3]   0.01004 0.500 2.000 0.920201
-ARCH Lag[5]   4.34569 1.440 1.667 0.145206
-ARCH Lag[7]  12.67065 2.315 1.543 0.004281
+            Statistic Shape Scale   P-Value
+ARCH Lag[3]  0.009122 0.500 2.000 9.239e-01
+ARCH Lag[5] 11.200028 1.440 1.667 3.341e-03
+ARCH Lag[7] 20.729545 2.315 1.543 4.158e-05
 \end{verbatim}
 
-We can see our model successfully wipes out ARCH effect at smaller lags, but fails at $lag[7]$. This is the best `sGARCH' can give with respest to our data.
-
+We can see our model successfully wipes out ARCH effect at small lags, but fails at larger lags. This is the best `sGARCH' can give with respest to our data. Maybe we should try long memory models instead of \textit{diff()} at first.\par
 
 \textbf{Graphical Diagnostics:}\par
+\begin{figure}[H]
+\centering
+\caption{acf(z)}
+\includegraphics[scale=.60]{zacf.png}
+\end{figure}
+This is a prove that we should have used a long memory model.\par 
+
+
 \text{rugarch} provide a function to plot a "uGARCHfit" obeject.\par
 ex. density smmothed to normal distribution:
 \begin{figure}[H]
@@ -345,6 +398,29 @@ qqplot:
 \end{figure}
 
 \indent We can see that $z$ is skewed, which might be correlated with long lags' heterodasticity.\par
+
+\textbf{Forecast}
+
+\begin{verbatim}
+fore1 = ugarchforecast(fit1, n.ahead = 24)
+fore.diff = as.numeric(fore1@forecast$seriesFor)
+fore.sigma = as.numeric(fore1@forecast$sigmaFor)
+ts.predict = temp[length(temp)] + cumsum(fore.diff)
+ts.predict = ts.predict + myTS.additive$figure
+ts.sigma = sqrt(cumsum(fore.sigma^2))
+tsup.sigma = ts.predict + ts.sigma
+tsdown.sigma = ts.predict - ts.sigma
+plot(1:24, ts.predict, ylim=c(0,1.5), type = 'l', col = 'blue', xlab = "months", ylab = "temperature predict")
+lines(1:24, tsup.sigma, type = 'l', col = 'red')
+lines(1:24, tsdown.sigma, type = 'l', col = 'red')
+\end{verbatim}
+
+\begin{figure}[H]
+\centering
+\caption{qqplot of $z$}
+\includegraphics[scale=.60]{predict01.png}
+\end{figure}
+
 
 \textbf{Conclusion}: 'sGARCH' have improved the model in the intuitive sense and to some extent fix the heterodasticity. 
 
