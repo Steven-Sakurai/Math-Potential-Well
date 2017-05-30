@@ -71,8 +71,27 @@ my_eGARCH_test <- function(p, q, m, n, ts.data)
     return(myfit)  
 }
 
+std_sGARCH_test <- function(p, q, m, n, ts.data)
+{
+    myspec=ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(p, q)), mean.model = list(armaOrder = c(m, n), include.mean = FALSE), distribution.model = "std")
+    
+    myfit=ugarchfit(myspec,data=ts.data, solver="solnp")
+    # extracting from fit result
+    return(myfit)  
+}
+stdmodel = std_eGARCH_test(1, 1, 2, 3, dtemp)
+
 # branches
 efit = my_eGARCH_test(2, 0, 2, 3, dtemp)
+
+atemp = temp[480:2004]
+t = 480:2004
+trend.model = lm(atemp ~ t + I(t^2))
+det = atemp + 2.280e-04 * t - 3.370e-07 * t^2
+
+
+
+
 
 
 
