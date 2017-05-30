@@ -369,7 +369,18 @@ ARCH Lag[7] 20.592184 2.315 1.543 4.509e-05
 
 We can see our model successfully wipes out ARCH effect at small lags, but fails at larger lags. This is the best `sGARCH' can give with respest to our data. Maybe we should try long memory models instead of \textit{diff()} at first.\par
 
+
+
+
 \textbf{Graphical Diagnostics:}\par
+The original series' acf is shown below(the difference of temperature):
+\begin{figure}[H]
+\centering
+\caption{acf(dtemp)}
+\includegraphics[scale=.60]{original_acf.png}
+\end{figure}
+
+The acf of standardized residuals:
 \begin{figure}[H]
 \centering
 \caption{acf(z)}
@@ -378,8 +389,7 @@ We can see our model successfully wipes out ARCH effect at small lags, but fails
 This is a prove that we should have used a long memory model.\par 
 
 
-\text{rugarch} provide a function to plot a "uGARCHfit" obeject.\par
-ex. density compared to normal distribution:
+The \textit{Empirical Density of Standardized Residuals} compared to normal distribution:
 \begin{figure}[H]
 \centering
 \caption{Empirical Density of Standardized Residuals}
@@ -394,6 +404,14 @@ qqplot:
 \end{figure}
 
 \indent We can see that $z$ is skewed, which might be correlated with long lags' heterodasticity.\par
+
+Series with 2 Conditional SD Superimposed:
+\begin{figure}[H]
+\centering
+\includegraphics[scale=.60]{series_sd.png}
+\end{figure}
+\indent In this plot, we can find the reason that \textit{GARCH(1, 1)} can't completely wipe out heterodasticity, because there is a huge anomaly that can't be explained by an arma on variance.
+
 
 \textbf{Forecast}
 
