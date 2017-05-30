@@ -30,13 +30,13 @@ res = my.arma$residuals
 Box.test(res, type = 'Ljung-Box')
 arch.test(my.arma)
 
-fit1 = my_sGARCH_test(1, 1, 2, 4, dtemp)
-z = as.numeric(residuals(fit) / sigma(fit))
+fit1 = my_sGARCH_test(1, 1, 2, 3, dtemp)
+z = as.numeric(residuals(fit1) / sigma(fit1))
 plot.ts(z)
 mean(z)
 var(z)
 length(z)
-plot.ts(rnorm(2003, 0.0289858, 1.012043))
+plot.ts(rnorm(2003, 0.03181525, 1.013866))
 plot(fit1)
 acf(z)
 
@@ -91,37 +91,20 @@ plot.ts(diff.temp)
 acf(diff.temp)
 
 # Route 4
-z = as.numeric(residuals(fit) / sigma(fit))
-d1 = fdGPH(z)
-z1 = diffseries(z, d1$d)
-auto.arima(z1)
-zarma = arima(z1, c(1, 0, 5))
-res4 = zarma$residuals
-acf(res4)
-model4 = my_sGARCH_test(1, 1, 0, 0, res4)
-z4 = model4@fit$z
-
-# Route 5
-library("mgcv")
-
-
-
-
-
-
+# in folder 'another'
 
 
 # convenient functions
 
 my_checkResNormal <- function(p, q, m, n, ts.data = res)
 {
-  f = my_sGARCH_test(p, q, m, n, ts.data = res)
-  shapiro.test(residuals(f)/sigma(f))
+    f = my_sGARCH_test(p, q, m, n, ts.data = res)
+    shapiro.test(residuals(f)/sigma(f))
 }
 
 setpar <- function(i1, i2)
 {
-  par(mfrow=c(i1, i2))
+    par(mfrow=c(i1, i2))
 }
 
 my_sGARCH_test <- function(p, q, m, n, ts.data)

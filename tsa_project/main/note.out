@@ -1,0 +1,8 @@
+\BOOKMARK [1][-]{section.1}{Data}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Data\040Source}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Brief\040Data\040Description}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Loading\040the\040Data\040into\040R}{section.1}% 4
+\BOOKMARK [1][-]{section.2}{Dealing\040with\040the\040time\040series}{}% 5
+\BOOKMARK [2][-]{subsection.2.1}{Decompose}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.2}{Build\040a\040ARMA\(p,\040q\)\040for\040dtemp}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.3}{GARCH}{section.2}% 8
