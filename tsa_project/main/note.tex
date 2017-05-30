@@ -197,9 +197,12 @@ Lagrange-Multiplier test:
 
 
 \indent It supports our doubt. Therefore we have the motive to build a $GARCH$ model. We decide to use the package $rugarch$.\par
+A standard GARCH model has the following variance equation:
 \begin{equation*}
 	\sigma_t^2 = (w + \sum_{j = 1}^m \zeta_j v_{jt}) + \sum_{j = 1}^q \alpha_j \varepsilon_{t-j}^2 + \sum_{j = 1}^p \beta_j \sigma_{t-j}^2
 \end{equation*} 
+
+
 \indent So we wrote a function:
 \begin{verbatim}
 library(rugarch)

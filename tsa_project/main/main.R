@@ -61,6 +61,21 @@ my_sGARCH_test <- function(p, q, m, n, ts.data)
     return(myfit)  
 }
 
+
+
+my_eGARCH_test <- function(p, q, m, n, ts.data)
+{
+    myspec=ugarchspec(variance.model = list(model = "eGARCH", garchOrder = c(p, q)), mean.model = list(armaOrder = c(m, n), include.mean = FALSE), distribution.model = "norm")
+    myfit=ugarchfit(myspec,data=ts.data, solver="solnp")
+    # extracting from fit result
+    return(myfit)  
+}
+
+# branches
+efit = my_eGARCH_test(2, 0, 2, 3, dtemp)
+
+
+
 # Route 2
 
 library(fracdiff)
@@ -115,7 +130,13 @@ my_sGARCH_test <- function(p, q, m, n, ts.data)
     return(myfit)  
 }
 
-
+my_eGARCH_test <- function(p, q, m, n, ts.data)
+{
+    myspec=ugarchspec(variance.model = list(model = "eGARCH", garchOrder = c(p, q)), mean.model = list(armaOrder = c(m, n), include.mean = FALSE), distribution.model = "norm")
+    myfit=ugarchfit(myspec,data=ts.data, solver="solnp")
+    # extracting from fit result
+    return(myfit)  
+}
 
 
 

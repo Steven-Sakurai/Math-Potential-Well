@@ -1,0 +1,7 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{Data}{3}{0}{1}
+\beamer@sectionintoc {2}{Adjustment}{6}{0}{2}
+\beamer@sectionintoc {3}{ARMA Model}{9}{0}{3}
+\beamer@sectionintoc {4}{Standard Garch Model}{13}{0}{4}
+\beamer@sectionintoc {5}{Diagnostics}{16}{0}{5}
+\beamer@sectionintoc {6}{Forecast}{24}{0}{6}
