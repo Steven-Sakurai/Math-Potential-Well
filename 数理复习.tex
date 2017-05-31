@@ -1,0 +1,77 @@
+%!TEX TS-program = xelatex  
+%!TEX encoding = UTF-8 Unicode  
+      
+\documentclass[a4paper, 11pt]{article}
+\usepackage[top=1.5in, bottom=1.5in, left=1.0in, right=1.0in]{geometry} 
+\usepackage{indentfirst}        
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{setspace}
+\usepackage{booktabs}        
+\usepackage{fontspec,xltxtra,xunicode}
+
+\usepackage[]{xeCJK}
+\setCJKmainfont[BoldFont=STKaitiSC-Bold, ItalicFont=STHeitiSC-Light]{STSong}
+\setCJKsansfont[BoldFont=STHeiti]{STXihei}
+\setCJKmonofont{STFangsong}
+
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%  MY MACRO  %%%%
+\newcommand{\lap}[1]{\mathcal{L}[{#1}]}
+\newcommand{\relap}[1]{\mathcal{L}^{-1}[{#1}]}
+
+
+%%%%%%%%%%%%%%%%%%%%%
+
+\title{数理期末复习}
+\author{STEVN SHEN}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Laplace Transform}
+\begin{equation*}
+\lap{f(t)} = \int_0 ^{+ \infty} f(t) e^{-pt} dt
+\end{equation*}
+\begin{equation*}
+f(t)= \cfrac{1}{2\pi i}\int_{s - i\sigma} ^{s + i\sigma} F(p) e^{pt} dp
+\end{equation*}
+
+Convention: $\lap{f(t)} = F(p)$
+\begin{enumerate}
+\item $\lap{1} = \cfrac{1}{p}$, $\lap{e^{at}} = \cfrac{1}{p - a}$
+\item $\lap{\delta(t)} = 1$, $\lap{\delta(t - t_0)} = e^{-pt_0}$
+\item 
+\begin{subequations}
+\begin{align*}
+\lap{e^{at}f(t)} &= F(p - a) \\
+\lap{f(t - t_0)} &= e^{-pt_0}F(p)
+\end{align*}
+\end{subequations}
+\item $\lap{f'(t)} = pF(p) - f(0)$
+\item $\lap{\int_0^{t} f(\tau) d\tau} = \cfrac{F(p)}{p}$
+\item $\lap{(-t)^n f(t)} = F^{(n)}(p)$
+\item $\lap{\cfrac{f(t)}{t}} = \int_{p}^{\infty} F(q)dq$, \\
+$p \rightarrow 0$, $\int_0^{\infty} \cfrac{f(t)}{t} = \int_0^{\infty} F(p)dp$
+\item 若$F(p)$在无穷远点解析，即$F(p) = \sum_{n=1}^{\infty}c_n p^{-n}$\\
+($F(p) \rightarrow 0$, $p \rightarrow \infty$) \\
+逐项反演$f(t) = \sum_{n=0}^{\infty}\cfrac{c_{n+1}}{n!}t^n$
+\item 由上条，$\lap{J_0(t)} = \cfrac{1}{\sqrt{p^2 + 1}}$\\
+$\lap{J_0(2\sqrt{t})} = \cfrac{1}{p}e^{-p}$
+\item 含参积分求导得：$\int_0^{\infty}e^{-t^2}cos2zt dt = \cfrac{\sqrt{\pi}}{2}e^{-z^2}$
+\item $\lap{\cfrac{1}{\sqrt{\pi t}}\int_0^{\infty} f(\tau) e^{- \frac{\tau^2}{4t}} d\tau} = \cfrac{1}{\sqrt{p}}F(\sqrt{p})$
+\item 由$\lap{\eta(t-a)} = \cfrac{1}{p}e^{-ap}$和上一条：\\
+$\lap{erfc(\frac{a}{2\sqrt(t)})} = \cfrac{1}{p}e^{-a\sqrt{p}}$ \quad $erfc(x) = \cfrac{2}{\sqrt{\pi}} \int_x^{\infty} e^{-z^2} dz$
+\item Convolution: $\lap{\int_0^t f_1(\tau) f_2(t-\tau) d\tau} = F_1(p)F_2(p)$
+\end{enumerate}
+
+
+\section{例题}
+\subsection{积分变换}
+\subsubsection{Fourier plus Laplace: 一维无界弦，$t=0$时，$u = \phi(x), u' = \psi(x)$}
+
+
+
+\end{document}

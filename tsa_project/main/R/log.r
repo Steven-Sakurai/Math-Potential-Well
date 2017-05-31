@@ -15,9 +15,12 @@ arfima(st)
 y = as.numeric(log(myTS.adjusted + 1 - min(myTS.adjusted)))[600:2004]
 ty = 1:length(y)
 trend = lm(y ~ ty)
+tr2 = lm(y ~ ty + I(cos((ty - 208)*pi/792)))
+
 # R^2 > 0.7
 # adding I(ty^2) or log(ty^2) wouldn't increase R^2
 summary(trend)
+summary(tr2)
 random = y - 3.309e-04*ty - 4.259e-01
 lmodel = arfima(random)
 summary(lmodel)

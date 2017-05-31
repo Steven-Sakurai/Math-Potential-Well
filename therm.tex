@@ -1,0 +1,116 @@
+    
+    %!TEX TS-program = xelatex  
+    %!TEX encoding = UTF-8 Unicode  
+      
+\documentclass[a4paper,12pt]{article}  
+\usepackage[top=1.5in, bottom=1.5in, left=1.0in, right=1.0in]{geometry} 
+\usepackage{longtable}
+\usepackage{fancyhdr}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage{booktabs}
+\usepackage{indentfirst}        
+\usepackage{fontspec,xltxtra,xunicode}
+\usepackage{float}
+\usepackage{amsmath}
+
+\usepackage[]{xeCJK}
+\setCJKmainfont[BoldFont=STKaitiSC-Bold, ItalicFont=STHeitiSC-Light]{STSong}
+\setCJKsansfont[BoldFont=STHeiti]{STXihei}
+\setCJKmonofont{STFangsong}
+
+%\defaultfontfeatures{Mapping=tex-text}  
+%\setromanfont{SimSun} %设置中文字体  
+\XeTeXlinebreaklocale “zh”  
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt %文章内中文自动换行  
+      
+%\newfontfamily{\H}{SimHei}  
+%\newfontfamily{\E}{Arial}  %设定新的字体快捷命令 
+\newcommand{\Hc}{\mathcal{H}}
+\newcommand{\myp}[3]{(\cfrac{\partial{#1}}{\partial{#2}})_{#3}}
+
+\title{thermodynamics}
+\author{ssh}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{基于两张草稿的还原}
+\subsection{热磁系统}
+$(H, M, T)$系统，其中$M$是总磁矩：磁极化强度$\times$体积。\par
+状态方程（居里定律）：$M = C\cfrac{\Hc}{T}$。已知$C_{\Hc}(\Hc = 0) = \cfrac{b}{T^2}$。\par
+由绝热功$dW = \mu_0 \Hc dM$，有第一定律$dU = dQ + \mu_0 \Hc dM$。$\Hc \sim P, M \sim V$。\par
+一般来讲，实验控制的是励磁电流$\rightarrow$ $\Hc$。所以定义$H = U - \mu_0 \Hc M$, $dH = C_{\Hc}dT - \mu_0 M d\Hc$。若过程可逆，则有$dH = TdS - \mu_0 M d\Hc$，$dF = -SdT + \mu_0 \Hc dM$，$dG = -SdT - \mu_0 M d\Hc$。\par
+因为$C_{\Hc}$是$T, \Hc$的函数，所以有
+\begin{equation}
+C_{\Hc} = C_{\Hc}(\Hc = 0) + \int_0^{\Hc} \myp{C_{\Hc}}{\Hc}{T} d\Hc 
+\end{equation}
+又由$dH$表达式知$C_{\Hc} = \myp{H}{T}{\Hc} = T\myp{S}{T}{\Hc}$。于是
+\begin{equation}
+\myp{C_{\Hc}}{\Hc}{T} = (\cfrac{T\partial{\myp{S}{T}{\Hc}}}{\partial{\Hc}})_{T} = T\myp{\myp{S}{\Hc}{T}}{T}{\Hc} 
+\end{equation}
+由$dG$表达式可得$\myp{S}{\Hc}{T} = \mu_0 \myp{M}{T}{\Hc} =  - \mu_0 C \cfrac{\Hc}{T^2}$\par
+代回 $T\myp{\myp{S}{\Hc}{T}}{T}{\Hc}$
+\begin{equation}
+\myp{C_{\Hc}}{\Hc}{T} = T\myp{( - \mu_0 C \cfrac{\Hc}{T^2})}{T}{\Hc} = 2\mu_0 C \Hc \frac{1}{T^2} 
+\end{equation}
+代回(1)可积得：
+\begin{equation}
+C_{\Hc} = \cfrac{\mu_0 C \Hc^2 + b^2}{T^2}
+\end{equation}
+
+\newpage
+接下来就可以计算体系的熵：
+\begin{subequations}
+\begin{align*}
+dS &= \myp{S}{T}{\Hc}dT + \myp{S}{\Hc}{T} d\Hc \\
+   &= \cfrac{C_{\Hc}}{T}dT + \myp{\mu_0 M}{T}{\Hc} d\Hc \\
+   &= \cfrac{\mu_0 C \Hc^2 + b^2}{T^3} - \cfrac{\mu_0 C \Hc}{T^2}d\Hc \\
+   &= d[- \cfrac{b + \mu_0 C \Hc^2}{2 T^2}] \\
+\end{align*}
+\end{subequations}
+
+
+\subsection{热辐射系统（光子气体）}
+热辐射系统仍由$(P,V,T)$描述。状态方程：$p = \frac{1}{3}u(T)$。\par
+基本微分方程：$dU = TdS - PdV$。\par
+由$dF = -SdT - PdV$有$\myp{S}{V}{T} = \myp{P}{T}{V}$。所以
+\begin{equation}
+\myp{U}{V}{T} = T\myp{P}{T}{V} - P
+\end{equation}
+代入状态方程得：
+\begin{equation}
+u = \sigma T^4
+\end{equation}
+$\sigma$为积分常数。于是$P = \frac{1}{3}\sigma T^4$, $C_V = 4 \sigma T^3 V$。\par
+计算体系的熵：
+\begin{subequations}
+\begin{align*}
+dS &= \myp{S}{T}{V}dT + \myp{S}{V}{T} dV \\
+   &= \cfrac{C_V}{T}dT + \myp{P}{T}{V}dV \\
+   & = d[\frac{4}{3}\sigma T^3 V] \\
+\end{align*}
+\end{subequations}
+\indent 光子气体的特性：$dG = -SdT + VdP = 0$。吉布斯自由能（化学势）守恒（为$0$）。
+
+
+
+
+\subsection{膜理论}
+一个薄膜有表面张力$F = 2 \alpha l$，$\alpha$一般与$T$成反比。于是膜系统由$(\alpha, A, T)$描述。\par
+基本微分方程：$dU = TdS + \alpha dA$，$dF = -SdT + \alpha dA$，$dG = -SdT - Ad\alpha$。\par
+设$U(T) = A \cdot u(T)$。广泛成立的式子是$\myp{U}{A}{T} = T\myp{\alpha}{T}{A} - \alpha$。于是有
+\begin{equation}
+u(T) = \alpha(T) - T\cfrac{d\alpha(T)}{T}
+\end{equation}
+计算得$C_A = -TA\cfrac{d^2\alpha}{dT^2}$。计算膜系统的熵：
+\begin{subequations}
+\begin{align*}
+dS &= \myp{S}{T}{A}dT + \myp{S}{A}{T} dA \\
+   &= \cfrac{C_A}{T}dT - \cfrac{d\alpha}{dT}dA \\
+   &= d(- A \cfrac{d\alpha}{dT}) \\
+\end{align*}
+\end{subequations}
+计算$dG = A \cfrac{d\alpha}{dT} dT - A d\alpha = 0$。膜系统与光子气体一样，吉布斯自由能守恒。
+
+\end{document}
