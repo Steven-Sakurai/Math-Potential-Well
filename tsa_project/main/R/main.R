@@ -12,8 +12,27 @@ temp = gtemp$V2[1:2004]
 myTS = ts(as.numeric(temp), start = c(1850, 1), frequency = 12)
 myTS.additive = decompose(myTS)
 # myTS.multiple = decompose(myTS, type = "multiplicative")
-myTS.adjusted = myTS.additive$x - myTS.additive$seasonal
+myTS.adjusted = as.numeric(myTS.additive$x - myTS.additive$seasonal)
 #res = myTS.additive$random
+
+auto.arima(myTS.adjusted)
+# (2, 0, 1) or (2, 1, 4)
+arima1 = Arima(myTS.adjusted, c(2, 0, 1))
+auto.arima(arima1$residuals)
+arima2 = Arima(myTS.adjusted, order = c(2, 1, 4))
+auto.arima(arima2$residuals)
+acf(arima1$residuals)
+acf(arima2$residuals)
+pacf(arima1$residuals)
+pacf(arima2$residuals)
+
+plot(forecast.Arima(arima2, h = 240))
+
+sarima = Arima(myTS.adjusted[1:1800], c(2, 1, 4))
+plot(forecast.Arima(sarima, h = 203))
+lines(myTS.adjusted)
+
+
 
 # Route 1
 
@@ -156,6 +175,55 @@ my_eGARCH_test <- function(p, q, m, n, ts.data)
     # extracting from fit result
     return(myfit)  
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+my.temp = as.numeric(myTS.adjusted)
+dtemp = diff(my.temp)
+stddtemp = (dtemp - mean(dtemp))/var(dtemp)
+s = stddtemp[500:length(stddtemp)]
+myspec=ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1, 0)), mean.model = list(armaOrder = c(1, 0), include.mean = FALSE, arfima = TRUE), distribution.model = "std")
+myfit=ugarchfit(myspec,data=s, fit.control=list(scale=TRUE))
+acf(myfit@fit$residuals)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
