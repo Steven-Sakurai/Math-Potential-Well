@@ -35,6 +35,40 @@
 \begin{document}
 \maketitle
 
+\section{配分函数的用法}
+离散能级下的定义：$Z = \sum_i g_i e^{-\beta \varepsilon_i}$。\par
+连续能谱，令$g(\varepsilon)$为能谱密度，则$Z = \int g(\varepsilon) e^{- \beta \varepsilon} d\varepsilon$。\par
+回想求解一个统计分布问题，要在两个约束下使系统的微观态数$W$取极大值。这两个约束（粒子总数，总能量）
+\begin{subequations}
+\begin{align}
+\sum_i a_i &= N \\
+\sum_i a_i \varepsilon_i & = E
+\end{align}
+\end{subequations}
+求解
+\begin{equation}
+\delta (lnW - \alpha \sum_i a_i - \beta \sum_i a_i \varepsilon_i) = 0
+\end{equation}
+$\alpha, \beta$是这么来的，通常$\beta = \frac{1}{k_B T}$。\par
+MB下, $\alpha = - \cfrac{\mu}{k_B T}$
+\begin{equation}
+a_i = g_i e^{-\alpha - \beta \varepsilon_i}
+\end{equation}
+BE（玻色子）和FD（费米子）的分布为：
+\begin{equation}
+a_i = \cfrac{g_i}{e^{\alpha \pm \beta \varepsilon_i}}
+\end{equation}
+\\
+\indent 回到$Z$的用法：
+\begin{subequations}
+\begin{align}
+N &= Z \cdot e^{-\alpha} \\
+E &= -N \cfrac{ln Z}{\beta} 
+\end{align}
+\end{subequations}
+之后，$C_V$也可直接代入$\beta = \frac{1}{k_B T}$，$C_V = (\cfrac{\partial E}{\partial T})_V$。
+
+
 \section{基于两张草稿的还原}
 \subsection{热磁系统}
 $(H, M, T)$系统，其中$M$是总磁矩：磁极化强度$\times$体积。\par
