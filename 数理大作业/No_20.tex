@@ -26,6 +26,8 @@
 \date{\today}
 \begin{document}
 \maketitle
+\section {Abstract}
+\indent As we all know, many important problems in economy and finance come down to solving a differential equation( with stochastic factors, of course ). In this report, we not only derive the famous \textbf{Black-Scholes formula}( as well as some other models, like the Vasicek model), but also give a solution from the perspective of physicists. The reason we can do this is that: compared with some equations in physics, these equations in finance have exactly the same form. Thus, it is clear that we can give new meanings to concepts in physics( Hamiltonian, propagator...and so on ).
 \section{(a)}
 Rewritten Using $Brownian$ $Motion$: 
 \begin{equation}
@@ -390,14 +392,20 @@ the left side can be written as:
 \begin{equation}
 \int_{t_{0}}^{T}\frac{(1-e^{-a\theta})^2}{a^2}dt=\frac{\theta}{a^2}-\frac{2}{a^3}e^{-aT}(e^{aT}-e^{at_{0}})+\frac{1}{2a^3}e^{-2aT}(e^{2aT}-e^{2at_{0}}).
 \end {equation}
-\indent After some comparison, the correctness is easy to prove.
-
+\indent After some comparison, the correctness is easy to prove:
+\begin{equation}
+P(t_0, T)=A(\theta )e^{-B(\theta) r_{0}}.
+\end{equation}
+where:
+\begin{equation}
+B(\theta)=\frac{1-e^{-a\theta}}{a}, A(\theta)=exp[(\frac{\sigma ^2}{2a^2}-b)(\theta -B(\theta))-\frac{\sigma ^2}{4a}B(\theta)^2].
+\end{equation}
 \section{Conclusion}
-
+We have followed our teacher's instructions and got satisfying results on Black-Scholes model. The whole process tells us that learning to solve PDE is very important.
 \section{Reference}
-[1]Belal E.Baaquie, Quantum Finance: Path integrals and Hamiltonians for Options and Interest Rates. Cambridge University Press (2004).
-[2]Zee.A, Quantum field theory in a nutshell. Princeton university press (2010).
-[3]J. C. Hull, Options, Futures and Other Derivatives. Fifth Edition, Prentice-Hall International (2003).
-[4]M. Otto, ‘Using path integrals to price interest rate derivatives’, http://xxx.lanl.gov/cond-mat/9812318.
-[5]O. Vasicek, ‘An Equilibrium Characterization of the Term Structure’. Journal of Financial Economics, 5: 177.
+{[1]}Belal E.Baaquie, Quantum Finance: Path integrals and Hamiltonians for Options and Interest Rates[M]. Cambridge University Press (2004).\\
+\indent{[2]}Zee.A, Quantum field theory in a nutshell[M]. Princeton university press (2010).\\
+\indent{[3]}J. C. Hull, Options, Futures and Other Derivatives[M]. Fifth Edition, Prentice-Hall International (2003).\\
+\indent{[4]}M. Otto, ‘Using path integrals to price interest rate derivatives’[J], http://xxx.lanl.gov/cond-mat/9812318.\\
+\indent{[5]}O. Vasicek, ‘An Equilibrium Characterization of the Term Structure’[J]. Journal of Financial Economics, 5: 177.\\
 \end{document}
