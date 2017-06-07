@@ -24,7 +24,9 @@ Build a robust time series model to forecast future temperature's interval.
 HadCRUT4 is a gridded dataset of global historical surface temperature anomalies relative to a 1961-1990 reference period. Data are available for each month since January 1850, on a 5 degree grid. \url{http://www.metoffice.gov.uk/hadobs/hadcrut4/data/current/time_series/HadCRUT.4.5.0.0.monthly_ns_avg.txt}.
 
 \subsection{Data adjustment}
-From the shown url, grab the monthly global mean of temperature anomalies from 1850-2016, which amounts to a length of 2004. Using decompose() function in R to get the adjusted value.(See appendix)  
+From the shown url, grab the monthly global mean of temperature anomalies from 1850-2016, which amounts to a length of 2004. Using decompose() function in R to get the adjusted value.(See appendix)  \par
+Why we didn't use the traditional adjustment method $\Delta^{12}$: I found that acf(myTS) shows acf anomaly at lag 24, not at lag 12. And after a $\Delta^{12}$ operation, acf at lag 12 became significant. Therefore, we think that using the $\Delta^{12}$ is feckless in this case.
+
 
 \subsection{Road Map}
 We went through a lot of difficulties during the construction of a proper model. Below is the basic idea I've thinked about.\par

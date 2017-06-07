@@ -29,11 +29,35 @@
 \newcommand{\Hc}{\mathcal{H}}
 \newcommand{\myp}[3]{(\cfrac{\partial{#1}}{\partial{#2}})_{#3}}
 
-\title{thermodynamics}
+\title{热学期末复习}
 \author{ssh}
 \date{\today}
 \begin{document}
 \maketitle
+
+
+\section{概念题}
+\subsection{第三定律}
+三种表述：
+\begin{itemize}
+\item 能斯特：不可能通过有限步骤使物体达到绝对零度
+\item 能斯特定理：系统在等温过程中的熵变随温度趋于绝对零度而趋于0。\\$lim_{T \rightarrow 0}(\Delta S)_{T} = 0$
+\item 系统的熵随绝对温度趋于0
+\end{itemize}
+
+\subsection{准静态}
+进行的足够缓慢，以至于系统连续经过的每个中间态都可近似地看成平衡态的过程。
+\subsection{可逆过程}
+无摩擦的准静态过程是可逆过程。（系统能够回到初始状态且对外界无影响）
+\subsection{焦-汤系数}
+节流过程前后：$\mu = \myp{T}{P}{H}$
+
+
+
+
+
+
+
 
 \section{配分函数的用法}
 离散能级下的定义：$Z = \sum_i g_i e^{-\beta \varepsilon_i}$。\par
@@ -63,13 +87,17 @@ a_i = \cfrac{g_i}{e^{\alpha \pm \beta \varepsilon_i}}
 \begin{subequations}
 \begin{align}
 N &= Z \cdot e^{-\alpha} \\
-E &= -N \cfrac{\partial ln Z}{\partial \beta} 
+E &= -N \cfrac{\partial ln Z}{\partial \beta} \\
+G &= -N \frac{1}{\beta} lnZ \\
+P &= \cfrac{\partial G}{\partial V} \\ 
+dS &= \frac{1}{T}(dU + PdV) = k_B \beta (N d(\cfrac{\partial ln Z}{\partial \beta}) + \frac{1}{\beta} N \cfrac{\partial ln Z}{\partial V} dV) \\
 \end{align}
 \end{subequations}
 之后，$C_V$也可直接代入$\beta = \frac{1}{k_B T}$，$C_V = (\cfrac{\partial E}{\partial T})_V$。
 
 
-\section{基于两张草稿的还原}
+
+\section{不同的热力学系统}
 \subsection{热磁系统}
 $(H, M, T)$系统，其中$M$是总磁矩：磁极化强度$\times$体积。\par
 状态方程（居里定律）：$M = C\cfrac{\Hc}{T}$。已知$C_{\Hc}(\Hc = 0) = \cfrac{b}{T^2}$。\par
@@ -93,8 +121,7 @@ C_{\Hc} = C_{\Hc}(\Hc = 0) + \int_0^{\Hc} \myp{C_{\Hc}}{\Hc}{T} d\Hc
 C_{\Hc} = \cfrac{\mu_0 C \Hc^2 + b^2}{T^2}
 \end{equation}
 
-\newpage
-接下来就可以计算体系的熵：
+\indent 接下来就可以计算体系的熵：
 \begin{subequations}
 \begin{align*}
 dS &= \myp{S}{T}{\Hc}dT + \myp{S}{\Hc}{T} d\Hc \\
@@ -127,9 +154,6 @@ dS &= \myp{S}{T}{V}dT + \myp{S}{V}{T} dV \\
 \end{subequations}
 \indent 光子气体的特性：$dG = -SdT + VdP = 0$。吉布斯自由能（化学势）守恒（为$0$）。
 
-
-
-
 \subsection{膜理论}
 一个薄膜有表面张力$F = 2 \alpha l$，$\alpha$一般与$T$成反比。于是膜系统由$(\alpha, A, T)$描述。\par
 基本微分方程：$dU = TdS + \alpha dA$，$dF = -SdT + \alpha dA$，$dG = -SdT - Ad\alpha$。\par
@@ -146,5 +170,44 @@ dS &= \myp{S}{T}{A}dT + \myp{S}{A}{T} dA \\
 \end{align*}
 \end{subequations}
 计算$dG = A \cfrac{d\alpha}{dT} dT - A d\alpha = 0$。膜系统与光子气体一样，吉布斯自由能守恒。
+
+
+\section{相变}
+\begin{subequations}
+\begin{align*}
+dG &= -S dT + V dP \\
+d\mu &= -s dT + v dP \\
+s &= \cfrac{\partial \mu}{\partial T} \\
+v &= \cfrac{\partial \mu}{\partial P} \\
+\end{align*}
+\end{subequations}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
