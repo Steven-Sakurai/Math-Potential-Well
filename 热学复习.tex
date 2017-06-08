@@ -49,14 +49,36 @@
 进行的足够缓慢，以至于系统连续经过的每个中间态都可近似地看成平衡态的过程。
 \subsection{可逆过程}
 无摩擦的准静态过程是可逆过程。（系统能够回到初始状态且对外界无影响）
-\subsection{焦-汤系数}
-节流过程前后：$\mu = \myp{T}{P}{H}$
-
-
-
-
-
-
+\subsection{什么时候可以认为过程绝热}
+声波的周期远小于热量传过$\lambda$的时间。设分子自由程$l$，则$\lambda^2 = N l^2$，$t_{\lambda} = \cfrac{N}{f} = \cfrac{Nl}{\bar{v}}$
+\subsection{某物理量$Q$的流量}
+单位时间、单位面积沿$z$: $J = - \cfrac{\bar{v}}{6} [\cfrac{d}{dz}(n(z)\cdot Q(z))] \cdot 2\bar{\lambda}$。
+\subsection{最小熵产生原理}
+在线性区定常输运过程中的熵产生最小。
+\subsection{两个公式}
+\begin{subequations}
+\begin{align*}
+dU &= C_V dT + (T\myp{P}{T}{V} - P)dV\\
+dH &= C_P dT + (-T\myp{V}{T}{P} + V)dP
+\end{align*}
+\end{subequations}
+\subsection{验证$\myp{U}{V}{} = 0$}
+\begin{itemize}
+\item 焦耳实验：绝热自由膨胀
+\item 等温膨胀实验：验证吸热做功相等
+\item 焦-汤实验 绝热节流：等焓过程\\
+$dH = C_P dT + \myp{H}{P}{T} dP$ \\
+焦-汤系数：$\mu = \cfrac{\Delta T}{\Delta P} = - \cfrac{1}{C_p}(- T \myp{T}{V}{P} + V)$ \\
+排斥占主导：$\mu < 0$；吸引占主导：$\mu > 0$
+\end{itemize}
+\subsection{卡诺定理和第二定律}
+考虑一个不可逆热机B和可逆热机A、两个热源。不可逆热机做功使得可逆热机从低温热源吸热，在高温热源放热。\\
+\begin{itemize}
+\item 卡诺定理：所有工作于两恒温热源的热机中，可逆热机的效率最高且其效率仅取决于两热源的温度。
+\item 克劳修斯表述：热量不能自发地（不对外界产生影响）从低温流向高温。$W_B = W_A, Q_{1A} - Q_{1B} = Q_{2A} - Q_{2B} > 0$
+\item 开尔文表述：不可能从单一热源吸热，完全转化为功而不产生其他影响。$Q_{1A} = Q_{1B}, W_B - W_A = Q_{2A} - Q_{2B} > 0$
+\item $dS \geq \cfrac{dQ}{T}$，其中$dQ$为可逆过程的时候取等。 
+\end{itemize}
 
 
 \section{配分函数的用法}
@@ -181,7 +203,9 @@ s &= \cfrac{\partial \mu}{\partial T} \\
 v &= \cfrac{\partial \mu}{\partial P} \\
 \end{align*}
 \end{subequations}
-
+相平衡的吉布斯能判据：$G(T, P)$取极小值，是内能小于熵大的竞争。定义序参量$m(T)$描述系统的有序程度，当温度足够高时，$m(T) = 0$，系统对称而无序，即系统的序参量取$-m, m$的概率相等。因而此时在$m = 0$附近有\\
+$G = a(T) + \frac{1}{2}b(T)m^2 + \frac{1}{4}c(T)m^4 + \frac{1}{6}d(T)m^6 + ...$\par
+连续相变中，随着温度降低，会有对称性自发性破缺。$\partial_m G(\bar{m}) = 0$, $\pm \bar{m}$对应的态达到的概率不同。一旦落在一个态，很难达到对称的另一个态。此时各态历经性遭到破坏。降温过程中，$\bar{m}$变化随$T$是连续的，但$\myp{m}{T}{}$不连续。
 
 
 
