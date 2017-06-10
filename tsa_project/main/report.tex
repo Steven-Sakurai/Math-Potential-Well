@@ -28,13 +28,6 @@ From the shown url, grab the monthly global mean of temperature anomalies from 1
 Why we didn't use the traditional adjustment method $\Delta^{12}$: I found that acf(myTS) shows acf anomaly at lag 24, not at lag 12. And after a $\Delta^{12}$ operation, acf at lag 12 became significant. Therefore, we think that using the $\Delta^{12}$ is feckless in this case.
 
 
-\subsection{Road Map}
-We went through a lot of difficulties during the construction of a proper model. Below is the basic idea I've thinked about.\par
-\begin{itemize}
-\item Dealing with Statonarity: diff() or time trend(linear, dynamic linear, discrete fourier series)?
-\item Dealing with stochastic volatility: taking logarithm or exclude some data or both? Stochastic volatility model?
-\item Choosing model: ARIMA or ARFIMA or ARMA-sGARCH or ARMA-eGARCH or ARFIMA-sGARCH or ARFIMA-eGARCH?
-\end{itemize}
 
 \subsection{Starting from \textit{arima} model}
 First, examine the stationarity of $myTS.adjusted$. Strange enough, it passed the $adf.test$ despite that it has a clear trend, as shown in the figure. So we tried to use $auto.arima()$ to decide if it is $I(1)$ or $I(0)$. As shown in the code and results, a $arima(2, 1, 4)$ model fits $myTS.adjusted$ better in both $acf$ and $pacf$. The t-value of the coefficients of $auto.arima(residuals)$ is smaller for $arima(2, 1, 4)$.\par
@@ -43,6 +36,10 @@ The forecast of $arima(2, 1, 4)$ for 240 months from $2017.1$ is shown in the fi
 \subsection{Long-Memory Model}
 Though acf shows that some lags are significant, but we think it's only because we took too big a confidential level. Actually the problem is not that great, but we still build a $ARFIMA$ model. \par
 We plot the $acf$ of the residuals of $ARFIMA$ model, but it seems that $ARFIMA$ can't effectively explain our data.
+
+\subsection{More remark on the long-memory effect}
+We find that acf of residuals always display significance at lag 24, which cannot be eliminaed by long-memory model. Also, as mentioned in the `Data adjustment part', seasonal adjustment with $period = 12$(12 months) cannot solve the problem as well. We've also tried to adjust the effect using $24$ lags, but to find it ineffective as well. It should also be noticed that using auto.arima() with seasonal set to TRUE is also bootless, because there is only lag 24 significant, and these `auto' functions only accept a logical seasonal value, therefore I cannot assign the fixed orders. At last, I find that I can manually find a somehow acceptable method to solve the 24 lag.(but there's another lag becoming significant, at lag 26 or something) The code and figures are in the appendix\par
+Since I do not know how to combine this method with GARCH model, I abandon it when dealing with heterodasticity problem. 
 
 \subsection{Solving Heterodasticity: Standard GARCH}
 Looking at the plot of the residuals of $arima(2, 1, 4)$. Obviously there exists heterodasticity problem. Using $adf.test$, it supports our doubt. Therefore we have the motive to build a $GARCH$ model. We decide to use the package $rugarch$.\par
@@ -184,10 +181,66 @@ sigma[eps] = 0.1200103
 Log likelihood:  1404 ==> AIC = -2796.513 [6 deg.freedom]
 
 > acf(lmodel$residuals)
+\end{verbatim}
 
+\subsubsection{Dealing with the 24-lag anomaly}
+\begin{verbatim}
+> gtemp = as.numeric(gtemp$V2)
+Error in gtemp$V2 : $ operator is invalid for atomic vectors
+> mytemp =  gtemp[600:1980] 
+> plot.ts(mytemp)
+> acf(mytemp)
+> pacf(mytemp)
+> m1 = auto.arima(mytemp, seasonal = TRUE)
+> m1
+Series: mytemp 
+ARIMA(3,1,1) with drift         
 
+Coefficients:
+         ar1     ar2     ar3      ma1  drift
+      0.4766  0.2072  0.0823  -0.9809  7e-04
+s.e.  0.0276  0.0296  0.0274   0.0062  2e-04
 
+sigma^2 estimated as 0.01009:  log likelihood=1215.01
+AIC=-2418.01   AICc=-2417.95   BIC=-2386.64
+> m2 = arima(mytemp, order = c(3, 1, 1), seasonal = list(order = c(1, 0, 1), period = 24))
+> m2
 
+Call:
+arima(x = mytemp, order = c(3, 1, 1), seasonal = list(order = c(1, 0, 1), period = 24))
+
+Coefficients:
+         ar1     ar2     ar3      ma1    sar1     sma1
+      0.4728  0.2125  0.0850  -0.9783  0.9232  -0.8713
+s.e.  0.0273  0.0294  0.0273   0.0063  0.0397   0.0518
+
+sigma^2 estimated as 0.009917:  log likelihood = 1223.8,  aic = -2435.6
+> m3 = arfima(mytemp)
+> m3
+
+Call:
+  arfima(y = mytemp) 
+
+Coefficients:
+         d     ar.ar1     ar.ar2     ma.ma1 
+0.49203791 0.70817900 0.08482127 0.68963222 
+sigma[eps] = 0.1010365 
+a list with components:
+ [1] "log.likelihood"  "n"               "msg"            
+ [4] "d"               "ar"              "ma"             
+ [7] "covariance.dpq"  "fnormMin"        "sigma"          
+[10] "stderror.dpq"    "correlation.dpq" "h"              
+[13] "d.tol"           "M"               "hessian.dpq"    
+[16] "length.w"        "call"            "residuals"      
+[19] "x"               "fitted"          "series"  
+> res3 = residuals(m3)
+> res4 = residuals(arima(res3, seasonal = list(order = c(1, 0, 1), period = 24)))
+> acf(res4) 
+# try to use pure seasonal adjustment with period=24
+> atemp = diff(mytemp, lag = 24)
+> m5 = auto.arima(atemp)
+> res5 = residuals(m5)
+> acf(res5)
 \end{verbatim}
 
 \subsubsection{sGARCH Model}
@@ -364,6 +417,8 @@ Elapsed time : 0.365526
 
 \subsection{Figures}
 
+\subsubsection{Data adjustment}
+
 \begin{figure}[H]
 \centering
 \caption{HadCRUT4 Data Global Mean Time Series}
@@ -376,6 +431,8 @@ Elapsed time : 0.365526
 \includegraphics[scale=.5]{myTSadjusted.png}
 \end{figure}
 
+
+\subsubsection{ARIMA Model}
 \begin{figure}[H]
 \centering
 \caption{Selecting arma order: acf of residuals of arma(2, 0, 1) \& (2, 1, 4)}
@@ -400,6 +457,9 @@ Elapsed time : 0.365526
 \includegraphics[scale=.5]{arima_sample.png}
 \end{figure}
 
+
+\subsubsection{ARFIMA Model}
+
 \begin{figure}[H]
 \centering
 \caption{Plot arima2's residuals}
@@ -413,7 +473,52 @@ Elapsed time : 0.365526
 \end{figure}
 
 
-\newpage 
+\subsubsection{More attempts on lag 24}
+Original series' acf and pacf
+
+\begin{figure}[H]
+\centering
+\caption{acf}
+\includegraphics[scale=.40]{mytemp_acf.png}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{pacf}
+\includegraphics[scale=.40]{mytemp_pacf.png}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\caption{res2's acf}
+\includegraphics[scale=.40]{res2_acf.png}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{res3's acf}
+\includegraphics[scale=.40]{res3_acf.png}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\centering
+\caption{final residuals: res4's acf}
+\includegraphics[scale=.40]{final_residuals_acf.png}
+\end{figure}
+
+The failure of trying pure seasonal adjustment
+
+\begin{figure}[H]
+\centering
+\caption{res5's acf}
+\includegraphics[scale=.40]{res5_acf.png}
+\end{figure}
+
+
+\subsubsection{GARCH Model}
 
 \begin{figure}[H]
 \centering
